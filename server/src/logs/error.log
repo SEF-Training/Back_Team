@@ -45,35 +45,3 @@
     at next (F:\Academy\server\node_modules\express\lib\router\index.js:280:10)
     at logger (F:\Academy\server\node_modules\morgan\index.js:144:5)
     at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
-[2023-11-06 04:34:17.791 AM] Error: Course not found
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:36:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:37:19.204 AM] Error: Course not found
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:39:33.189 AM] Error: This course not found
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:40:55.299 AM] Error: This course not found
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:42:06.583 AM] Error: [object Object]
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:42:59.133 AM] Error: This course not found
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-[2023-11-06 04:56:21.597 AM] SyntaxError: Unexpected token } in JSON at position 392
-    at JSON.parse (<anonymous>)
-    at parse (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\body-parser\lib\types\json.js:89:19)
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\body-parser\lib\read.js:128:18
-    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
-    at invokeCallback (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:231:16)
-    at done (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:220:7)
-    at IncomingMessage.onEnd (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:280:7)
-    at IncomingMessage.emit (node:events:514:28)
-    at endReadableNT (node:internal/streams/readable:1359:12)
-    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-[2023-11-06 04:59:08.947 AM] TypeError: res.status.send is not a function
-    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:51:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
