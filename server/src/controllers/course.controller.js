@@ -1,58 +1,145 @@
 const Course = require('../models/courses.model');
 const asyncHandler = require('express-async-handler');
+const mongoose = require('mongoose');
+const { paginate } = require('../utils/pagination');
 // const loggerEvent = require('../services/logger.services');
 // const logger = loggerEvent('courses');
 
 //************ */ courses/ router ---------------------------------
 // @desc    Get all courses
-// @route   GET /api/courses
-// @access  Private
+// @route   GET /api/courses/admin
+// @access  Private-admin
 exports.getAllCourses = asyncHandler(async (req, res) => {
-	res.status(200).json(await Course.find());
+	const { error, data, pagination } = await paginate(Course, req);
+	if (error) return res.status(404).json({ success: false, error });
+	res.status(200).json({ success: true, pagination, data });
 });
 
 // @desc    Create new course
-// @route   GET /api/courses
+// @route   GET /api/courses/admin
 // @access  Private
-exports.createCourse = asyncHandler(async (req, res) => {
-	const newCourse = await Course.create(req.body);
-	if (newCourse) {
-		// logger.info(`Created a new course with id: ${newCourse._id}`);
-		res.status(201).send({
-			success: true,
-			message: 'New course created',
-			data: newCourse,
-		});
-	}
-});
+exports.createCourse = asyncHandler(async(req,res)=>{
+	// console.log(req.body)
+	
+	const newCourse = await new Course(req.body)
+	await newCourse.save()
+	res.status(201).json({ success: true, message: "Course Created successfully " });
+
+	
+})
 
 //************ *courses/:id router ---------------------------------
 // @desc    Get single course by ID
-// @route   GET /api/courses/:id
-// @access  Private
+// @route   GET /api/courses/admin/:id
+// @access  Private-admin
 exports.getSingleCourse = asyncHandler(async (req, res) => {
-	const course = await Course.findById(req.params.id);
+	const course = await Course.findById(req.params._id);
 	if (!course) {
-      
-		throw new Error('This course not found');
+		return res.status(404).send({ success: false, message: 'course not found!' });
 	}
 	res.status(200).send({ success: true, data: course });
 });
 
 // @desc    Update course by ID
-// @route   Patch /api/courses/:id
-// @access  Private
+// @route   Patch /api/courses/admin/:id
+// @access  Private-admin
 exports.updateCourse = asyncHandler(async (req, res) => {
-   console.log('req.body', req.body);
-   const course = await Course.findByIdAndUpdate(req.params.id,req.body,{new:true})
-   if(!course){
-      throw new Error("No course found");
-      }
-      res.status(200).send({success:true, message:'Course updated successfully', data:course})
-
+	if (req.file) {
+		req.body.image = `/courses/${req.file.filename}`;
+	}
+	const course = await Course.findByIdAndUpdate(req.params._id, req.body, { new: true });
+	if (!course) {
+		return res.status(404).send({ success: false, message: 'course not found!' });
+	}
+	res.status(200).send({
+		success: true,
+		message: 'Course updated successfully',
+		data: course,
+	});
 });
 
 // @desc    Delete course by ID
-// @route   DELETE /api/courses/:id
-// @access  Private
-exports.deleteCourse = asyncHandler(async (req, res) => {});
+// @route   DELETE /api/courses/admin/:id
+// @access  Private-admin
+exports.deleteCourse= asyncHandler(async (req, res) => {
+	const id = req.params.id
+	// console.log(id)
+	const course = await Course.findByIdAndDelete(id)
+	if(!course){
+		 return res.status(404).json({ success: false, error: `No Course For This Id : ${id}` })
+	}
+	return res.status(200).json()
+
+
+});
+
+// -----------------------------------------  controller authorize instructor -------------
+// @desc    Authorize Instructor for a course
+// @route   POST /api/courses/instructor
+// @access  Private-instructor
+exports.instructorGetCourses = asyncHandler(async (req, res) => {
+	const { error, data, pagination } = await paginate(Course, req, {
+		Instructor: req.user._id,
+	});
+	if (error) return res.status(404).json({ success: false, message: error.message });
+
+	res.status(200).send({ success: true, pagination, data });
+});
+
+// @desc    Authorize Instructor git his course
+// @route   POST /api/courses/instructor/:_id
+// @access  Private-instructor
+exports.instructorGetCourse = asyncHandler(async (req, res) => {
+	const course = await Course.findOne({
+		_id: req.params?._id,
+		Instructor: req.user?._id,
+	})
+		// .populate('enrolledStudents', 'registeredCourses')
+		.populate('enrolledStudents.student', 'firstName lastName userId');
+
+	if (!course) {
+		return res.status(401).send({
+			success: false,
+			message: 'Unauthorized access! You are not the owner of this course.',
+		});
+	}
+	res.status(200).send({ success: true, data: course });
+});
+
+// @desc		Authorize Student get his courses
+// @route	GET /api/courses/student
+// @access	Private-student
+exports.studentGetCourses = asyncHandler(async (req, res) => {
+	// const { error, data, pagination } = await paginate(Course, req, {
+	// 	enrolledStudents: req.user._id,
+	// });
+
+	const courses = await Course.find({ enrolledStudents: req.user._id }).populate(
+		'Instructor',
+		'firstName lastName -_id'
+	);
+	if (!courses) {
+		return res.status(404).json({ success: false, message: 'no courses found' });
+	}
+
+	res.status(200).send({ success: true, data: courses });
+});
+
+// @desc		Authorize Student get his course
+// @route	GET /api/courses/student/:_id
+// @access	Private-student
+exports.studentGetCourse = asyncHandler(async (req, res) => {
+	const course = await Course.findOne({
+		_id: req.params._id,
+		enrolledStudents: req.user._id,
+	}).populate('Instructor', 'firstName lastName -_id');
+	// .populate('enrolledStudents', 'firstName lastName -_id');
+
+	if (!course) {
+		return res.status(401).send({
+			success: false,
+			message: 'Unauthorized access! You are not a student in this course.',
+		});
+	}
+	res.status(200).send({ success: true, data: course });
+});

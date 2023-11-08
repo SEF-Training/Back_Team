@@ -2,33 +2,17 @@ const Joi = require('joi');
 const { enum_coursesStatus } = require('../config/enums');
 // const Joi = require('joi-oid');
 
-const courseValidation = Joi.object({
-	// id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
-	// id: Joi.string().hex().length(24).required().messages({
-	// 	'any.only': 'Course id must be a valid ObjectID',
-	// 	'any.required': 'Course id is required',
-	// }),
-	name: Joi.string()
-		.required()
-		.min(3)
-		.max(50)
-		// .error(() => ({ message: 'Course name must be between 3 and 50 characters' })),
-		.messages({
-			'any.required': 'Please enter a course name',
-			'any.min': 'Course name must be between 3 and 50 characters',
-			'any.mix': 'Course name must be between 3 and 50 characters',
-		}),
-	level: Joi.number()
-		// .valid(...enum_coursesLevels)
-		.required()
-		.min(1)
-		.max(10)
-		.integer()
-		.messages({
-			'any.required': 'Please provide a course level',
-			'any.min': 'Course level must be between 3 and 50 characters',
-			'any.mix': 'Course level must be between 3 and 50 characters',
-		}),
+const newCourseValidation = Joi.object({
+	name: Joi.string().required().min(3).max(50).messages({
+		'any.required': 'Please enter a course name',
+		'any.min': 'Course name must be between 3 and 50 characters',
+		'any.mix': 'Course name must be between 3 and 50 characters',
+	}),
+	level: Joi.number().required().min(1).max(10).integer().messages({
+		'any.required': 'Please provide a course level',
+		'any.min': 'Course level must be between 3 and 50 characters',
+		'any.mix': 'Course level must be between 3 and 50 characters',
+	}),
 	status: Joi.string()
 		.valid(...enum_coursesStatus)
 		.required()
@@ -38,9 +22,7 @@ const courseValidation = Joi.object({
 			'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
 		}),
 	sessions: Joi.number().required().integer().message('please provide sessions number'),
-	languages: Joi.array().items(
-		Joi.string().trim().required() //.message('please provide languages')
-	),
+	languages: Joi.array().items(Joi.string().trim().required()),
 	requirements: Joi.array().items(Joi.string()),
 	assessments: Joi.array().items(Joi.string()),
 	materials: Joi.array().items(Joi.string()),
@@ -57,4 +39,33 @@ const courseValidation = Joi.object({
 		.messages({ 'any.required': 'Please select the Instructor' }),
 });
 
-module.exports = courseValidation;
+const updateCourseValidation = Joi.object({
+	name: Joi.string().min(3).max(50).messages({
+		'any.min': 'Course name must be between 3 and 50 characters',
+		'any.mix': 'Course name must be between 3 and 50 characters',
+	}),
+	level: Joi.number().min(1).max(10).integer().messages({
+		'any.min': 'Course level must be between 3 and 50 characters',
+		'any.mix': 'Course level must be between 3 and 50 characters',
+	}),
+	status: Joi.string()
+		.valid(...enum_coursesStatus)
+		.trim()
+		.messages({
+			'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
+		}),
+	sessions: Joi.number().integer().message('please provide sessions number'),
+	languages: Joi.array().items(Joi.string().trim()),
+	requirements: Joi.array().items(Joi.string()),
+	assessments: Joi.array().items(Joi.string()),
+	materials: Joi.array().items(Joi.string()),
+	introduction: Joi.string(),
+	image: Joi.string().trim(),
+	certificate: Joi.boolean(),
+	duration: Joi.string(),
+	Start_date: Joi.date(),
+	publish_date: Joi.date().default(() => new Date()),
+	Instructor: Joi.string(),
+});
+
+module.exports = { newCourseValidation, updateCourseValidation };
