@@ -10,23 +10,23 @@ const { paginate } = require('../utils/pagination');
 // @route   GET /api/courses/admin
 // @access  Private-admin
 exports.getAllCourses = asyncHandler(async (req, res) => {
-	res.status(200).json(await Course.find());
+	const { error, data, pagination } = await paginate(Course, req);
+	if (error) return res.status(404).json({ success: false, error });
+	res.status(200).json({ success: true, pagination, data });
 });
 
 // @desc    Create new course
 // @route   GET /api/courses/admin
 // @access  Private
-exports.createCourse = asyncHandler(async (req, res) => {
-	const newCourse = await Course.create(req.body);
-	if (newCourse) {
-		// logger.info(`Created a new course with id: ${newCourse._id}`);
-		res.status(201).send({
-			success: true,
-			message: 'New course created',
-			data: newCourse,
-		});
-	}
-});
+exports.createCourse = asyncHandler(async(req,res)=>{
+	// console.log(req.body)
+	
+	const newCourse = await new Course(req.body)
+	await newCourse.save()
+	res.status(201).json({ success: true, message: "Course Created successfully " });
+
+	
+})
 
 //************ *courses/:id router ---------------------------------
 // @desc    Get single course by ID
@@ -61,15 +61,16 @@ exports.updateCourse = asyncHandler(async (req, res) => {
 // @desc    Delete course by ID
 // @route   DELETE /api/courses/admin/:id
 // @access  Private-admin
-exports.deleteCourse = asyncHandler(async (req, res) => {
-	const course = await Course.findByIdAndDelete(req.params._id);
-	if (!course) {
-		return res.status(404).send({ success: false, message: 'course not found!' });
+exports.deleteCourse= asyncHandler(async (req, res) => {
+	const id = req.params.id
+	// console.log(id)
+	const course = await Course.findByIdAndDelete(id)
+	if(!course){
+		 return res.status(404).json({ success: false, error: `No Course For This Id : ${id}` })
 	}
-	res.status(200).send({
-		success: true,
-		message: `Course ${course?.name} deleted successfully`,
-	});
+	return res.status(200).json()
+
+
 });
 
 // -----------------------------------------  controller authorize instructor -------------
