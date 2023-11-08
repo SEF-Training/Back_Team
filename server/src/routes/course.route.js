@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const courseValidation = require('../validation/course.validation');
 const { upload } = require('../middlewares/uploadMiddleware');
+const {
+	newCourseValidation,
+	updateCourseValidation,
+} = require('../validation/course.validation');
 const { validationMiddleware } = require('../middlewares/validationMiddleware');
 const {
 	createCourse,
@@ -9,27 +12,46 @@ const {
 	getSingleCourse,
 	updateCourse,
 	deleteCourse,
+	instructorGetCourses,
+	instructorGetCourse,
+	studentGetCourses,
+	studentGetCourse,
 } = require('../controllers/course.controller');
 const {
 	authorizeAdmin,
 	authorizeInstructor,
+	authorizeStudent,
 } = require('../middlewares/authenticateMiddleware');
 const validateObjectId = require('../middlewares/validateObjectIdMiddleware');
 
-// only admin has authorize
-router.use(authorizeAdmin);
 
-// courses operations
+// -------------------------------------- Admin routes ----------------------
 router
-	.route('/')
-	.post(validationMiddleware(courseValidation), upload.single('image'), createCourse)
+	.route('/admin')
+	.all(authorizeAdmin)
+	.post(validationMiddleware(newCourseValidation), upload.single('image'), createCourse)
 	.get(getAllCourses);
 
-// single course operations ----------------------------------
+// single course operations --
 router
-	.route('/:id', validateObjectId)
+	.route('/admin/:_id')
+	.all(authorizeAdmin, validateObjectId)
 	.get(getSingleCourse)
-	.patch(validationMiddleware(courseValidation), upload.single('image'), updateCourse)
+	.patch(
+		upload.single('image'),
+		validationMiddleware(updateCourseValidation),
+		updateCourse
+	)
 	.delete(deleteCourse);
+
+
+// -------------------------------------- instructor routes ----------------------
+router.get('/instructor', authorizeInstructor, instructorGetCourses);
+router.get('/instructor/:_id', authorizeInstructor, instructorGetCourse);
+
+
+// -------------------------------------- student routes ----------------------
+router.get('/student', authorizeStudent, studentGetCourses);
+router.get('/student/:_id', authorizeStudent, studentGetCourse);
 
 module.exports = router;

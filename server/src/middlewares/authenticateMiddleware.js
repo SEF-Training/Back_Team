@@ -24,4 +24,5 @@ module.exports = {
   authenticate,
   authorizeAdmin: authorizeRoles("Admin"),
   authorizeInstructor: authorizeRoles("Instructor"),
+  authorizeStudent: authorizeRoles('Student'),
 };

@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken');
 const { deleteUploadedFile } = require("../utils/deleteUploadedFile");
@@ -23,6 +23,11 @@ const userSchema = new Schema({
     applicantFor: [{ type: Schema.Types.ObjectId, ref: "Job" }],
     earnedCertificates: [{ type: Schema.Types.ObjectId, ref: "Certificate" }],
     registeredCourses: [{ type: Schema.Types.ObjectId, ref: "Course" },],
+    // registeredCourses:[{
+    //     course: { type: mongoose.Types.ObjectId, ref: 'Course' },
+    //     status: String,
+	// 	score: Number,
+    // }],
     createdCVs: [{ type: Schema.Types.ObjectId, ref: "CV" }],
 }, { timestamps: true });
 
