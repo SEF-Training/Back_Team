@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const {enum_jobStatus} = require('../config/enums')
 const jobSchema = new Schema({
   companyName: {
     type: String,
@@ -36,6 +36,7 @@ const jobSchema = new Schema({
   jobType: {
     type: String,
     required: true,
+    enum:enum_jobStatus,
     trim: true,
   },
   jobDescription: {
@@ -53,11 +54,20 @@ const jobSchema = new Schema({
     required:true,
     trim : true,
 } ,
-salary :{
-  type:Number,
-  required:true,
-  trim : true,
-} ,
+salary: [
+  {
+    from: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
+    to: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
+  },
+],
 
   date: {
     type: Date,
