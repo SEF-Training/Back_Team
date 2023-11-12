@@ -2,6 +2,7 @@ const Course = require('../models/courses.model');
 const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
 const { paginate } = require('../utils/pagination');
+const { calculateEndDate } = require('../utils/calculateEndDate');
 // const loggerEvent = require('../services/logger.services');
 // const logger = loggerEvent('courses');
 
@@ -10,22 +11,24 @@ const { paginate } = require('../utils/pagination');
 // @route   GET /api/courses/admin
 // @access  Private-admin
 exports.getAllCourses = asyncHandler(async (req, res) => {
-	res.status(200).json(await Course.find());
+	const { error, data, pagination } = await paginate(Course, req);
+	if (error) return res.status(404).json({ success: false, error });
+	res.status(200).json({ success: true, pagination, data });
 });
 
 // @desc    Create new course
 // @route   GET /api/courses/admin
 // @access  Private
 exports.createCourse = asyncHandler(async (req, res) => {
-	const newCourse = await Course.create(req.body);
-	if (newCourse) {
-		// logger.info(`Created a new course with id: ${newCourse._id}`);
-		res.status(201).send({
-			success: true,
-			message: 'New course created',
-			data: newCourse,
-		});
-	}
+	console.log('req.body', req.body)
+
+	const newCourse = await new Course(req.body);
+	await newCourse.save();
+	res.status(201).json({
+		success: true,
+		data: newCourse,
+		message: 'Course Created successfully ',
+	});
 });
 
 //************ *courses/:id router ---------------------------------
@@ -62,14 +65,15 @@ exports.updateCourse = asyncHandler(async (req, res) => {
 // @route   DELETE /api/courses/admin/:id
 // @access  Private-admin
 exports.deleteCourse = asyncHandler(async (req, res) => {
-	const course = await Course.findByIdAndDelete(req.params._id);
+	const id = req.params.id;
+	// console.log(id)
+	const course = await Course.findByIdAndDelete(id);
 	if (!course) {
-		return res.status(404).send({ success: false, message: 'course not found!' });
+		return res
+			.status(404)
+			.json({ success: false, error: `No Course For This Id : ${id}` });
 	}
-	res.status(200).send({
-		success: true,
-		message: `Course ${course?.name} deleted successfully`,
-	});
+	return res.status(200).json();
 });
 
 // -----------------------------------------  controller authorize instructor -------------
@@ -92,9 +96,7 @@ exports.instructorGetCourse = asyncHandler(async (req, res) => {
 	const course = await Course.findOne({
 		_id: req.params?._id,
 		Instructor: req.user?._id,
-	})
-		// .populate('enrolledStudents', 'registeredCourses')
-		.populate('enrolledStudents.student', 'firstName lastName userId');
+	}).populate('enrolledStudents.student', 'firstName lastName userId');
 
 	if (!course) {
 		return res.status(401).send({
@@ -142,3 +144,46 @@ exports.studentGetCourse = asyncHandler(async (req, res) => {
 	}
 	res.status(200).send({ success: true, data: course });
 });
+
+// ------------------------------------ auto Update status ------------------------
+exports.autoUpdateCourseStatus = async () => {
+	const currentDate = new Date();
+	try {
+		const upcomingCourses = await Course.find({
+			start_date: { $lte: currentDate },
+			status: 'upcoming',
+		});
+
+		if (!upcomingCourses) return null;
+
+		for (const course in upcomingCourses) {
+			await Course.findByIdAndUpdate(course?._id, { $set: { status: 'ongoing' } });
+			infoLogger.info(
+				`course ${course?.name} | ${course?._id} | status auto updated from 'upcoming' to 'ongoing'`
+			);
+		}
+
+		// update ended status---------------------------
+		const ongoingCourses = await Course.find({
+			start_date: { $lte: currentDate },
+			status: 'ongoing',
+		});
+
+		if (!ongoingCourses) return null;
+
+		for (const course in ongoingCourses) {
+			const endDate = calculateEndDate(course?.start_date, course?.duration);
+			if (currentDate >= endDate) {
+				await Course.findByIdAndUpdate(course?._id, { $set: { status: 'ended' } });
+				infoLogger.info(
+					`course ${course?.name} | ${course?._id} | status auto updated 'ongoing' from to 'ended`
+				);
+			}
+		}
+	} catch (error) {
+		console.log('something went wrong while auto update course Status', error);
+		errorLogger.error(
+			'something went wrong while auto update course Status' + error?.message
+		);
+	}
+};
