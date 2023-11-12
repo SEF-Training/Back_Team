@@ -20,15 +20,15 @@ exports.getAllCourses = asyncHandler(async (req, res) => {
 // @route   GET /api/courses/admin
 // @access  Private
 exports.createCourse = asyncHandler(async (req, res) => {
-	console.log('req.body', req.body)
-
-	const newCourse = await new Course(req.body);
-	await newCourse.save();
-	res.status(201).json({
-		success: true,
-		data: newCourse,
-		message: 'Course Created successfully ',
-	});
+	const newCourse = await Course.create(req.body);
+	if (newCourse) {
+		// logger.info(`Created a new course with id: ${newCourse._id}`);
+		res.status(201).send({
+			success: true,
+			message: 'New course created',
+			data: newCourse,
+		});
+	}
 });
 
 //************ *courses/:id router ---------------------------------
@@ -65,15 +65,14 @@ exports.updateCourse = asyncHandler(async (req, res) => {
 // @route   DELETE /api/courses/admin/:id
 // @access  Private-admin
 exports.deleteCourse = asyncHandler(async (req, res) => {
-	const id = req.params.id;
-	// console.log(id)
-	const course = await Course.findByIdAndDelete(id);
+	const course = await Course.findByIdAndDelete(req.params._id);
 	if (!course) {
-		return res
-			.status(404)
-			.json({ success: false, error: `No Course For This Id : ${id}` });
+		return res.status(404).send({ success: false, message: 'course not found!' });
 	}
-	return res.status(200).json();
+	res.status(200).send({
+		success: true,
+		message: `Course ${course?.name} deleted successfully`,
+	});
 });
 
 // -----------------------------------------  controller authorize instructor -------------
