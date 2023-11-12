@@ -6,10 +6,10 @@ const storageEngine = multer.diskStorage({
 		let dest;
 		switch (req.baseUrl) {
 			case '/seff-academy/v1.0/users':
-				dest = 'uploads/users';
+				dest = 'src/uploads/users';
 				break;
 			case '/seff-academy/v1.0/courses':
-				dest = 'uploads/courses';
+				dest = 'src/uploads/courses';
 				break;
 			default:
 				dest = 'uploads';

@@ -1,6 +1,5 @@
 const Joi = require('joi');
 const { enum_coursesStatus } = require('../config/enums');
-// const Joi = require('joi-oid');
 
 const newCourseValidation = Joi.object({
 	name: Joi.string().required().min(3).max(50).messages({
@@ -37,6 +36,8 @@ const newCourseValidation = Joi.object({
 	Instructor: Joi.string()
 		.required()
 		.messages({ 'any.required': 'Please select the Instructor' }),
+	enrolledStudents: Joi.array().items(Joi.object()),
+	exams: Joi.array().items(Joi.string()),
 });
 
 const updateCourseValidation = Joi.object({
@@ -66,6 +67,8 @@ const updateCourseValidation = Joi.object({
 	Start_date: Joi.date(),
 	publish_date: Joi.date().default(() => new Date()),
 	Instructor: Joi.string(),
+	enrolledStudents: Joi.array().items(Joi.object()),
+	exams: Joi.array().items(Joi.string()),
 });
 
 module.exports = { newCourseValidation, updateCourseValidation };

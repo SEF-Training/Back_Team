@@ -3,8 +3,7 @@ const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
 const { paginate } = require('../utils/pagination');
 const { calculateEndDate } = require('../utils/calculateEndDate');
-// const loggerEvent = require('../services/logger.services');
-// const logger = loggerEvent('courses');
+const { infoLogger } = require('../services/infoLoggerService');
 
 //************ */ courses/ router ---------------------------------
 // @desc    Get all courses
@@ -20,14 +19,15 @@ exports.getAllCourses = asyncHandler(async (req, res) => {
 // @route   GET /api/courses/admin
 // @access  Private
 exports.createCourse = asyncHandler(async (req, res) => {
+	console.log('req.body', req.body);
 	const newCourse = await Course.create(req.body);
 	if (newCourse) {
-		// logger.info(`Created a new course with id: ${newCourse._id}`);
 		res.status(201).send({
 			success: true,
 			message: 'New course created',
 			data: newCourse,
 		});
+		logger.info(`Created a new course with id: ${newCourse._id}`);
 	}
 });
 
@@ -59,6 +59,9 @@ exports.updateCourse = asyncHandler(async (req, res) => {
 		message: 'Course updated successfully',
 		data: course,
 	});
+	infoLogger.info(
+		`course ${course?.name} | ${course?._id} was updated successfully by ${req.user?.firstName} ${req.user?.lastName} | ${req.user?._id}`
+	);
 });
 
 // @desc    Delete course by ID
@@ -73,6 +76,9 @@ exports.deleteCourse = asyncHandler(async (req, res) => {
 		success: true,
 		message: `Course ${course?.name} deleted successfully`,
 	});
+	infoLogger.info(
+		`course ${course?.name} | ${course?._id} was deleted successfully by ${req.user?.firstName} ${req.user?.lastName} | ${req.user?._id}`
+	);
 });
 
 // -----------------------------------------  controller authorize instructor -------------

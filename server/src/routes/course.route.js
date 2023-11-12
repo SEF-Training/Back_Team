@@ -24,12 +24,11 @@ const {
 } = require('../middlewares/authenticateMiddleware');
 const validateObjectId = require('../middlewares/validateObjectIdMiddleware');
 
-
 // -------------------------------------- Admin routes ----------------------
 router
 	.route('/admin')
 	.all(authorizeAdmin)
-	.post(validationMiddleware(newCourseValidation), upload.single('image'), createCourse)
+	.post(upload.single('image'), validationMiddleware(newCourseValidation), createCourse)
 	.get(getAllCourses);
 
 // single course operations --
@@ -44,11 +43,9 @@ router
 	)
 	.delete(deleteCourse);
 
-
 // -------------------------------------- instructor routes ----------------------
 router.get('/instructor', authorizeInstructor, instructorGetCourses);
 router.get('/instructor/:_id', authorizeInstructor, instructorGetCourse);
-
 
 // -------------------------------------- student routes ----------------------
 router.get('/student', authorizeStudent, studentGetCourses);
