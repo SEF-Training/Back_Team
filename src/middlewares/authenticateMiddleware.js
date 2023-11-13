@@ -10,6 +10,7 @@ const authenticate = (req, res, next) => {
 }
 
 const authorizeRoles = (allowedRole) => (req, res, next) => {
+
   authenticate(req, res, () => {
     const hasMatchingRole = req.user.role === allowedRole
     if (hasMatchingRole) {

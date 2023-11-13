@@ -1,24 +1,33 @@
 const Job = require('../models/job.model')
 const asyncHandler = require('express-async-handler')
 
-exports.createJob = asyncHandler(async (req , res)=>{
+exports.createJob = asyncHandler(async (req, res) => {
     const newJob = await Job.create(req.body);
-    res.status(200).send({
-        success : true ,
+    if (!newJob) {
+        return res.status(500).send({
+            success: false,
+            message: 'Failed to create a new job'
+        });
+    }
+
+    return res.status(200).send({
+        success: true,
         message: 'New Job created successfully',
         data: newJob
-    })
-
-    
-})
+    });
+});
 
 exports.getJob = asyncHandler(async(req,res)=>{
 
     const job = await Job.findById(req.params.id)
     if(!job){
-        throw new Error ('Job not found')
-    }
-    res.status(200).send({
+        return   res.status(404).send({
+            success: false ,
+            message:'Job Not Found',
+            data: job
+        }) 
+        }
+   return res.status(200).send({
         success: true , 
         message:'Job found successfully',
         data: job
@@ -31,17 +40,34 @@ exports.getAllJobs = asyncHandler(async(req,res)=>{
 
 exports.deleteJob = asyncHandler (async(req, res)=>{
 
-    const job = await Job.findByIdAndDelete(req.para)
+    console.log(req.params.id);
+    const job = await Job.findByIdAndDelete(req.params.id)
+    if(!job){
+        return   res.status(404).send({
+            success: false ,
+            message:'Job Not Found',
+            data: job
+        }) 
+       }
+       return res.status(200).send({
+        success: true ,
+        message:'Job deleted successfully',
+        data: job
+    })
 
 })
 
-exports.updateJon  = asyncHandler (async(req,res)=>{
+exports.updateJob  = asyncHandler (async(req,res)=>{
     const job = await Job.findByIdAndUpdate(req.params.id , req.body , {new : true})
     
     if(!job){
-        throw new Error('Job not found')
-    }
-    res.status(200).send({
+       return res.status(404).send({
+            success: false ,
+            message:'Job Not Found',
+            data: job
+        })
+        }
+   return res.status(200).send({
         success: true ,
         message:'Job updated successfully',
         data: job

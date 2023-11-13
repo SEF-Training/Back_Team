@@ -8,6 +8,9 @@ const storageEngine = multer.diskStorage({
       case '/seff-academy/v1.0/users':
         dest = 'src/uploads/users';
         break;
+        case '/seff-academy/v1.0/jobs':
+          dest = 'src/uploads/jobs';
+          break;
       default:
         dest = 'uploads';
     }

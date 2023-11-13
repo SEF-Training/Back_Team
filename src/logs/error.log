@@ -77,3 +77,86 @@
 [2023-11-06 04:59:08.947 AM] TypeError: res.status.send is not a function
     at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:51:18
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-14 12:48:21.079 AM] SyntaxError: Unexpected token } in JSON at position 49
+    at JSON.parse (<anonymous>)
+    at parse (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\body-parser\lib\types\json.js:89:19)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:231:16)
+    at done (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:220:7)
+    at IncomingMessage.onEnd (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:280:7)
+    at IncomingMessage.emit (node:events:517:28)
+    at endReadableNT (node:internal/streams/readable:1368:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[2023-11-14 12:49:04.075 AM] SyntaxError: Unexpected token } in JSON at position 145
+    at JSON.parse (<anonymous>)
+    at parse (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\body-parser\lib\types\json.js:89:19)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:231:16)
+    at done (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:220:7)
+    at IncomingMessage.onEnd (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\raw-body\index.js:280:7)
+    at IncomingMessage.emit (node:events:517:28)
+    at endReadableNT (node:internal/streams/readable:1368:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[2023-11-14 12:54:32.697 AM] ValidationError: Job validation failed: date: Cast to date failed for value "2023-11-15T0" (type string) at path "date"
+    at Document.invalidate (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:3174:32)
+    at model.$set (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:1454:12)
+    at model.$set (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:1114:16)
+    at model.Document (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:165:12)
+    at model.Model (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:125:12)
+    at new model (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:4599:15)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:2804:20
+    at Array.map (<anonymous>)
+    at Function.create (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:2792:34)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\src\controllers\job.control.js:5:30
+[2023-11-14 01:23:49.442 AM] MulterError: Unexpected field
+    at wrappedFileFilter (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:517:28)
+    at HeaderParser.cb (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+[2023-11-14 01:25:38.412 AM] MulterError: Unexpected field
+    at wrappedFileFilter (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:517:28)
+    at HeaderParser.cb (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+[2023-11-14 01:26:20.942 AM] MulterError: Unexpected field
+    at wrappedFileFilter (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:517:28)
+    at HeaderParser.cb (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+[2023-11-14 01:26:34.413 AM] MulterError: Unexpected field
+    at wrappedFileFilter (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:517:28)
+    at HeaderParser.cb (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+[2023-11-14 01:28:03.747 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918083639--4b0abc61-8806-4269-bf6c-d53300950d61--r.jpg'
+[2023-11-14 01:28:05.093 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918085092--c3dc61b1-fc4c-4b65-8cbb-2d3b6994ca3b--r.jpg'
+[2023-11-14 01:29:27.919 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918167912--b6573663-2585-471d-af28-71ca265261ce--r.jpg'
+[2023-11-14 01:29:50.876 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\uploads\1699918190873--8d9b3e41-5eb2-4019-88b8-dff03e4c945f--r.jpg'
+[2023-11-14 01:30:59.543 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918259537--8b554439-30a5-4002-b8a9-208b592a7697--r.jpg'
+[2023-11-14 01:37:17.277 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918637274--e2c30296-f5cb-4470-9cd6-144f62bc4242--r.jpg'
