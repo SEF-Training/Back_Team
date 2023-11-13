@@ -53,7 +53,7 @@ const courseSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		Start_date: {
+		start_date: {
 			type: Date,
 			required: [true, 'please select the start date'],
 			default: Date.now(),
@@ -92,8 +92,8 @@ courseSchema.virtual('students', {
 	foreignField: '_id',
 });
 
-courseSchema.pre('findByIdAndUpdate', deleteUploadedFile);
-courseSchema.pre('findByIdAndDelete', deleteUploadedFile);
+courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
+courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
 
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;
