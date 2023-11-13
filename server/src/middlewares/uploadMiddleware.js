@@ -24,14 +24,29 @@ const storageEngine = multer.diskStorage({
 	},
 });
 const checkFileType = function (file, cb) {
-	const fileTypes = /jpeg|jpg|png|gif|svg/;
-	const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
-	const mimeType = fileTypes.test(file.mimetype);
-	if (mimeType && extName) {
-		return cb(null, true);
-	} else {
-		cb('Error: You can Only Upload Images!!');
-	}
+	// const fileTypes = /jpeg|jpg|png|gif|svg/;
+	// const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+	// const mimeType = fileTypes.test(file.mimetype);
+	// if (mimeType && extName) {
+	// 	return cb(null, true);
+	// } else {
+	// 	cb('Error: You can Only Upload Images!!');
+	// }
+	const checkFileType = function(file, cb) {
+
+		const fileTypes = /jpeg|jpg|png|gif|svg|pdf/;
+	  
+		const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());  
+	  
+		const mimetype = file.mimetype.includes('pdf');
+	  
+		if(mimetype && extname) {
+		  return cb(null,true);
+		} else {
+		  cb('Error: Only images and pdf allowed!');
+		}
+	  
+	  }
 };
 const upload = multer({
 	storage: storageEngine,
