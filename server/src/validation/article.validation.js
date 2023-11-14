@@ -6,7 +6,7 @@ const newArticleValidation = Joi.object({
 	title: Joi.string().required().min(3).max(50).messages({
 		'any.required': 'Please enter a Article name',
 		'any.min': 'Article name must be between 3 and 50 characters',
-		'any.mix': 'Article name must be between 3 and 50 characters',
+		'any.max': 'Article name must be between 3 and 50 characters',
 	}),
 
 	category: Joi.string()
@@ -48,7 +48,7 @@ const newArticleValidation = Joi.object({
 const updateArticleValidation = Joi.object({
 	title: Joi.string().min(3).max(50).messages({
 		'any.min': 'Article name must be between 3 and 50 characters',
-		'any.mix': 'Article name must be between 3 and 50 characters',
+		'any.max': 'Article name must be between 3 and 50 characters',
 	}),
 
 	category: Joi.string()
