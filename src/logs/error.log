@@ -1,0 +1,79 @@
+[2023-11-05 05:52:42.611 PM] TypeError: Cannot read properties of null (reading 'accountStatus')
+    at F:\Academy\server\src\controllers\authController.js:7:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-05 05:58:20.492 PM] ReferenceError: genUserId is not defined
+    at F:\Academy\server\src\controllers\authController.js:8:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-05 10:38:14.669 PM] ReferenceError: jwt is not defined
+    at F:\Academy\server\src\controllers\authController.js:34:25
+    at asyncUtilWrap (F:\Academy\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Academy\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Academy\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Academy\server\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (F:\Academy\server\node_modules\express\lib\router\index.js:346:12)
+    at next (F:\Academy\server\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (F:\Academy\server\node_modules\express\lib\router\index.js:175:3)
+[2023-11-05 11:20:02.285 PM] ReferenceError: bcrypt is not defined
+    at F:\Academy\server\src\controllers\userController.js:37:29
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 12:19:30.502 AM] CastError: Cast to Array failed for value "{ mobileNumber: undefined }" (type Object) at path "$or" for model "User"
+    at cast (F:\Academy\server\node_modules\mongoose\lib\cast.js:65:15)
+    at Query.cast (F:\Academy\server\node_modules\mongoose\lib\query.js:4769:12)
+    at Query._castConditions (F:\Academy\server\node_modules\mongoose\lib\query.js:2200:10)
+    at model.Query._findOne (F:\Academy\server\node_modules\mongoose\lib\query.js:2485:8)
+    at model.Query.exec (F:\Academy\server\node_modules\mongoose\lib\query.js:4291:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async F:\Academy\server\src\controllers\userController.js:51:30
+[2023-11-06 12:21:42.267 AM] CastError: Cast to Array failed for value "{ mobileNumber: '132234568890' }" (type Object) at path "$or" for model "User"
+    at cast (F:\Academy\server\node_modules\mongoose\lib\cast.js:65:15)
+    at Query.cast (F:\Academy\server\node_modules\mongoose\lib\query.js:4769:12)
+    at Query._castConditions (F:\Academy\server\node_modules\mongoose\lib\query.js:2200:10)
+    at model.Query._findOne (F:\Academy\server\node_modules\mongoose\lib\query.js:2485:8)
+    at model.Query.exec (F:\Academy\server\node_modules\mongoose\lib\query.js:4291:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async F:\Academy\server\src\controllers\userController.js:52:34
+[2023-11-06 12:55:00.704 AM] Error: error
+    at F:\Academy\server\src\config\app.js:15:8
+    at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Academy\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Academy\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Academy\server\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (F:\Academy\server\node_modules\express\lib\router\index.js:346:12)
+    at next (F:\Academy\server\node_modules\express\lib\router\index.js:280:10)
+    at logger (F:\Academy\server\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (F:\Academy\server\node_modules\express\lib\router\layer.js:95:5)
+[2023-11-06 04:34:17.791 AM] Error: Course not found
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:36:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:37:19.204 AM] Error: Course not found
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:39:33.189 AM] Error: This course not found
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:40:55.299 AM] Error: This course not found
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:42:06.583 AM] Error: [object Object]
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:42:59.133 AM] Error: This course not found
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:37:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-06 04:56:21.597 AM] SyntaxError: Unexpected token } in JSON at position 392
+    at JSON.parse (<anonymous>)
+    at parse (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\body-parser\lib\types\json.js:89:19)
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:231:16)
+    at done (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:220:7)
+    at IncomingMessage.onEnd (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\node_modules\raw-body\index.js:280:7)
+    at IncomingMessage.emit (node:events:514:28)
+    at endReadableNT (node:internal/streams/readable:1359:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[2023-11-06 04:59:08.947 AM] TypeError: res.status.send is not a function
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\Back_Team_2\server\src\controllers\course.controller.js:51:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
