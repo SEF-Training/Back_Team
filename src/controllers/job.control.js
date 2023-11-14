@@ -1,6 +1,6 @@
 const Job = require('../models/job.model')
 const asyncHandler = require('express-async-handler')
-
+const {paginate}  =require('../utils/pagination')
 exports.createJob = asyncHandler(async (req, res) => {
     const newJob = await Job.create(req.body);
     if (!newJob) {
@@ -35,7 +35,9 @@ exports.getJob = asyncHandler(async(req,res)=>{
 })
 
 exports.getAllJobs = asyncHandler(async(req,res)=>{
-    res.status(200).json(await Job.find())
+    const {error , data , pagination} = await paginate(Job , req)
+    if(error) return res.status(404).json({success: false, error})
+     res.status(200).json({success: true, pagination  , data})
 });
 
 exports.deleteJob = asyncHandler (async(req, res)=>{
