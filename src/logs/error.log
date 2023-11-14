@@ -160,3 +160,36 @@
 [2023-11-14 01:29:50.876 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\uploads\1699918190873--8d9b3e41-5eb2-4019-88b8-dff03e4c945f--r.jpg'
 [2023-11-14 01:30:59.543 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918259537--8b554439-30a5-4002-b8a9-208b592a7697--r.jpg'
 [2023-11-14 01:37:17.277 AM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\Back_Team_2\server\src\uploads\jobs\1699918637274--e2c30296-f5cb-4470-9cd6-144f62bc4242--r.jpg'
+[2023-11-14 03:02:54.303 AM] TypeError: schema.validate is not a function
+    at D:\Rwan\back-end node\training\Back_Team_2\server\src\middlewares\validationMiddleware.js:3:32
+    at Layer.handle [as handle_request] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (D:\Rwan\back-end node\training\Back_Team_2\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\route.js:144:13)
+    at validateObjectId (D:\Rwan\back-end node\training\Back_Team_2\server\src\middlewares\validateObjectIdMiddleware.js:7:3)
+    at Layer.handle [as handle_request] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\route.js:114:3)
+[2023-11-14 03:03:18.873 AM] TypeError: schema.validate is not a function
+    at D:\Rwan\back-end node\training\Back_Team_2\server\src\middlewares\validationMiddleware.js:3:32
+    at Layer.handle [as handle_request] (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\express\lib\router\route.js:144:13)
+    at done (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:49:68)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\lib\make-middleware.js:155:11
+    at WriteStream.<anonymous> (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:529:35)
+    at finish (node:internal/streams/writable:748:10)
+    at finishMaybe (node:internal/streams/writable:733:9)
+[2023-11-14 03:16:54.783 AM] ValidationError: Job validation failed: date: Cast to date failed for value "ffffffffffffff" (type string) at path "date"
+    at Document.invalidate (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:3174:32)
+    at model.$set (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:1454:12)
+    at model.$set (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:1114:16)
+    at model.Document (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\document.js:165:12)
+    at model.Model (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:125:12)
+    at new model (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:4599:15)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:2804:20
+    at Array.map (<anonymous>)
+    at Function.create (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:2792:34)
+    at D:\Rwan\back-end node\training\Back_Team_2\server\src\controllers\job.control.js:5:30

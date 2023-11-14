@@ -59,6 +59,7 @@ exports.deleteJob = asyncHandler (async(req, res)=>{
 
 exports.updateJob  = asyncHandler (async(req,res)=>{
     const job = await Job.findByIdAndUpdate(req.params.id , req.body , {new : true})
+    if(req.file) req.body.companyLogo = `/jobs/${req.file.filename}`
     
     if(!job){
        return res.status(404).send({

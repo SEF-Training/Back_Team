@@ -5,7 +5,7 @@ async function deleteFile(path) {
     infoLogger.info(`image ${path} was successfully deleted`)
 }
 const deleteUploadedFile = async function () {
-    const imageFields = ['profileImage','coverImage'];
+    const imageFields = ['profileImage','coverImage' , 'companyLogo'];
     let foundImageField = null;
     try {
         const doc = await this.model.findOne(this.getQuery());
