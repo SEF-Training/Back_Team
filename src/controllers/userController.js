@@ -44,12 +44,11 @@ module.exports = {
         res.status(200).json({ success: true, data: updatedUser });
     }),
     updateUserProfileCtrl: asyncHandler(async (req, res) => {
-        const { mobileNumber } = req.body
         if (req.file) req.body.profileImage = `/users/${req.file.filename}`
         const userHimSelf = req.user._id.toString() === req.params._id.toString()
         if (!userHimSelf) return res.status(403).json({ success: false, error: "only users can update themselves" })
-        if (mobileNumber) {
-            const existingUser = await User.findOne({ _id: { $ne: req.params._id }, $or: [{ mobileNumber }] });
+        if (req.body.mobileNumber) {
+            const existingUser = await User.findOne({ _id: { $ne: req.params._id }, $or: [{ mobileNumber:req.body.mobileNumber }] });
             if (existingUser) return res.status(400).json({ success: false, error: `This MobileNumber already in use ..!` })
         }
         const updatedUser = await User.findOneAndUpdate({ _id: req.params._id }, req.body, { new: true });
