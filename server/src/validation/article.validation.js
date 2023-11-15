@@ -1,32 +1,20 @@
 const Joi = require('joi');
-const { enum_ArticlesStatus } = require('../config/enums');
-
+const { enum_ArticlesCategory } = require('../config/enums');
 
 const newArticleValidation = Joi.object({
-	title: Joi.string().required().min(3).max(50).messages({
+	title: Joi.string().required().min(3).max(100).messages({
 		'any.required': 'Please enter a Article name',
-		'any.min': 'Article name must be between 3 and 50 characters',
-		'any.max': 'Article name must be between 3 and 50 characters',
+		'any.min': 'Article name must be between 3 and 100 characters',
+		'any.max': 'Article name must be between 3 and 100 characters',
 	}),
 
 	category: Joi.string()
 		.valid(...enum_ArticlesCategory)
 		.required()
 		.trim()
-		// .default(enum_ArticlesCategory[0])
 		.messages({
 			'any.required': 'Please provide a status for this Article',
 			'any.only': `Must be one of the following values: ${enum_ArticlesCategory}`,
-		}),
-
-	status: Joi.string()
-		.valid(...enum_ArticlesStatus)
-		.required()
-		.trim()
-		.default(enum_ArticlesStatus[0])
-		.messages({
-			'any.required': 'Please provide a status for this Article',
-			'any.only': `Must be one of the following values: ${enum_ArticlesStatus}`,
 		}),
 
 	content: Joi.string().required().messages({
@@ -37,35 +25,27 @@ const newArticleValidation = Joi.object({
 
 	publish_date: Joi.date().default(Date.now()),
 
-	publishBy: Joi.string()
-		.required()
-		.messages({ 'any.required': 'Please select the Instructor' }),
+	// publish_by: Joi.string()
+	// 	.required()
+	// 	.messages({ 'any.required': 'Please select the Instructor' }),
 
-	// isPublished: Joi.boolean(),
+	isPublished: Joi.boolean().required().messages({
+		'any.required': 'Please specify if you want to publish or draft',
+	}),
 });
 
-
 const updateArticleValidation = Joi.object({
-	title: Joi.string().min(3).max(50).messages({
-		'any.min': 'Article name must be between 3 and 50 characters',
-		'any.max': 'Article name must be between 3 and 50 characters',
+	title: Joi.string().min(3).max(100).messages({
+		'any.min': 'Article name must be between 3 and 100 characters',
+		'any.max': 'Article name must be between 3 and 100 characters',
 	}),
 
 	category: Joi.string()
 		.valid(...enum_ArticlesCategory)
 		.trim()
-		// .default(enum_ArticlesCategory[0])
 		.messages({
-			'any.required': 'Please provide a status for this Article',
+			'any.required': 'Please provide a category for this Article',
 			'any.only': `Must be one of the following values: ${enum_ArticlesCategory}`,
-		}),
-
-	status: Joi.string()
-		.valid(...enum_ArticlesStatus)
-		.trim()
-		.default(enum_ArticlesStatus[0])
-		.messages({
-			'any.only': `Must be one of the following values: ${enum_ArticlesStatus}`,
 		}),
 
 	content: Joi.string(),
@@ -74,9 +54,9 @@ const updateArticleValidation = Joi.object({
 
 	publish_date: Joi.date().default(Date.now()),
 
-	publishBy: Joi.string(),
+	// publish_by: Joi.string(),
 
-	// isPublished: Joi.boolean(),
+	isPublished: Joi.boolean(),
 });
 
 module.exports = { newArticleValidation, updateArticleValidation };
