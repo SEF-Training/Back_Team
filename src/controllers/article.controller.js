@@ -32,7 +32,7 @@ const articleController = {
 			queryRole = { isPublished: true };
 		}
 
-		const article = await Article.findOne({ _id: req.params._id, ...queryRole });
+		const article = await Article.findOne({ _id: req.params.id, ...queryRole });
 		if (!article) {
 			return res.status(404).json({ success: false, error: 'Article not found' });
 		}
@@ -79,7 +79,7 @@ const articleController = {
 		if (req.file) {
 			req.body.cover = `/articles/${req.file.filename}`;
 		}
-		const { _id } = req.params;
+		const { id } = req.params;
 
 		// const article = await Article.findById(_id);
 
@@ -98,7 +98,7 @@ const articleController = {
 			status = req.body?.isPublished;
 		}
 		const updatedArticle = await Article.findByIdAndUpdate(
-			_id,
+			id,
 			{ ...req.body, isPublished: status },
 			{ new: true }
 		);
@@ -118,9 +118,9 @@ const articleController = {
 	}),
 
 	deleteArticle: asyncHandler(async (req, res) => {
-		const { _id } = req.params;
+		const { id } = req.params;
 
-		const deletedArticle = await Article.findByIdAndDelete(_id);
+		const deletedArticle = await Article.findByIdAndDelete(id);
 
 		if (!deletedArticle) {
 			return res.status(404).json({ success: false, error: 'Article not found' });

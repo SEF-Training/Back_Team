@@ -44,8 +44,8 @@ exports.createCertificate = asyncHandler(async (req, res) => {
 // @route   GET /api/certificate/admin/:id
 // @access  Private-admin
 exports.getSingleCertificate = asyncHandler(async (req, res) => {
-	const certificate = await Certificate.findById(req.params._id)
-	.populate('student course', 'firstName lastName name Instructor');
+	const certificate = await Certificate.findById(req.params.id)
+		.populate('student course', 'firstName lastName name Instructor');
 
 	if (!certificate) {
 		return res.status(404).send({ success: false, message: 'Certificate not found!' });
@@ -60,7 +60,7 @@ exports.updateCertificate = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.certificate_file = `/certificates/${req.file.filename}`;
 	}
-	const certificate = await Certificate.findByIdAndUpdate(req.params._id, req.body, {
+	const certificate = await Certificate.findByIdAndUpdate(req.params.id, req.body, {
 		new: true,
 	});
 	if (!certificate) {
@@ -80,7 +80,7 @@ exports.updateCertificate = asyncHandler(async (req, res) => {
 // @route   DELETE /api/certificate/admin/:id
 // @access  Private-admin
 exports.deleteCertificate = asyncHandler(async (req, res) => {
-	const certificate = await Certificate.findByIdAndDelete(req.params._id);
+	const certificate = await Certificate.findByIdAndDelete(req.params.id);
 	if (!certificate) {
 		return res.status(404).send({ success: false, message: 'Certificate not found!' });
 	}
@@ -93,7 +93,7 @@ exports.deleteCertificate = asyncHandler(async (req, res) => {
 	);
 });
 
-// @desc		Authorize Student get his certificate
+// @desc	Authorize Student get his certificate
 // @route	GET /api/certificate/student
 // @access	Private-student
 exports.studentGetCertificates = asyncHandler(async (req, res) => {
@@ -107,22 +107,3 @@ exports.studentGetCertificates = asyncHandler(async (req, res) => {
 
 	res.status(200).send({ success: true, data: certificates });
 });
-
-// @desc		Authorize Student get his certificate
-// @route	GET /api/certificate/student/:_id
-// @access	Private-student
-// exports.studentGetcertificate = asyncHandler(async (req, res) => {
-// 	const certificate = await Certificate.findOne({
-// 		_id: req.params._id,
-// 		enrolledStudents: req.user._id,
-// 	}).populate('Instructor', 'firstName lastName -_id');
-// 	// .populate('enrolledStudents', 'firstName lastName -_id');
-
-// 	if (!certificate) {
-// 		return res.status(401).send({
-// 			success: false,
-// 			message: 'Unauthorized access! You are not a student in this certificate.',
-// 		});
-// 	}
-// 	res.status(200).send({ success: true, data: certificate });
-// });

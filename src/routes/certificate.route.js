@@ -21,7 +21,7 @@ router
 
 // single course operations --
 router
-	.route('/admin/:_id')
+	.route('/admin/:id')
 	.all(authorizeAdmin, validateObjectId)
 	.get(getSingleCertificate)
 	.patch(

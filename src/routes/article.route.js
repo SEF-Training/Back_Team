@@ -21,10 +21,10 @@ router.get('/', authenticate, articleController.getAllArticles);
 
 
 // single articles routes operations --
-router.get('/:_id', authenticate, validateObjectId, articleController.getArticle);
+router.get('/:id', authenticate, validateObjectId, articleController.getArticle);
 
 router
-	.route('/:_id')
+	.route('/:id')
 	.all(authorizeAdmin, validateObjectId)
 	.patch(
 		upload.single('cover'),

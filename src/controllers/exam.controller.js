@@ -30,7 +30,7 @@ const examController = {
 	}),
 
 	getExam: asyncHandler(async (req, res) => {
-		const { _id } = req.params;
+		const { id } = req.params;
 		const userRole = req.user?.role;
 
 		let queryRole = {};
@@ -43,7 +43,7 @@ const examController = {
 			queryRole = { course: course?._id };
 		}
 
-		const exam = await Exam.findOne({ _id, ...queryRole });
+		const exam = await Exam.findOne({ id, ...queryRole });
 		if (!exam) {
 			return res
 				.status(404)
@@ -78,10 +78,10 @@ const examController = {
 	}),
 
 	updateExam: asyncHandler(async (req, res) => {
-		const { _id } = req.params;
+		const { id } = req.params;
 
 		const updatedExam = await Exam.findOneAndUpdate(
-			{ _id, Instructor: req.user?._id },
+			{ id, Instructor: req.user?._id },
 			req.body,
 			{ new: true }
 		);
@@ -101,9 +101,9 @@ const examController = {
 	}),
 
 	deleteExam: asyncHandler(async (req, res) => {
-		const { _id } = req.params;
+		const { id } = req.params;
 
-		const deletedExam = await Exam.findOneAndDelete({ _id, Instructor: req.user?._id });
+		const deletedExam = await Exam.findOneAndDelete({ id, Instructor: req.user?._id });
 
 		if (!deletedExam) {
 			return res.status(404).json({ success: false, error: 'Exam not found' });
