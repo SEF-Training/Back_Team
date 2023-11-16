@@ -22,7 +22,8 @@ const authorizeRoles = (allowedRole) => (req, res, next) => {
 };
 
 module.exports = {
-  authenticate,
-  authorizeAdmin: authorizeRoles("Admin"),
-  authorizeInstructor: authorizeRoles("Instructor"),
+	authenticate,
+	authorizeAdmin: authorizeRoles('Admin'),
+	authorizeInstructor: authorizeRoles('Instructor'),
+	authorizeStudent: authorizeRoles('Student'),
 };
