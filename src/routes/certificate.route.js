@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { upload } = require('../middlewares/uploadMiddleware');
 const { validationMiddleware } = require('../middlewares/validationMiddleware');
-const { authorizeAdmin, authorizeStudent } = require('../middlewares/authenticateMiddleware');
+const { authorizeAdmin, authenticate } = require('../middlewares/authenticateMiddleware');
 const validateObjectId = require('../middlewares/validateObjectIdMiddleware');
 const { newCertificateValidation, updateCertificateValidation } = require('../validation/certificate.validation');
 const { studentGetCertificates, deleteCertificate, updateCertificate, getSingleCertificate, getAllCertificate, createCertificate } = require('../controllers/certificate.controller');
@@ -33,6 +33,6 @@ router
 
 
 // -------------------------------------- student routes ----------------------
-router.get('/student', authorizeStudent, studentGetCertificates);
+router.get('/student', authenticate, studentGetCertificates);
 
 module.exports = router;

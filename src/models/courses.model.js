@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const { enum_coursesStatus } = require('../config/enums');
 const { Schema } = mongoose;

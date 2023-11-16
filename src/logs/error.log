@@ -193,3 +193,15 @@
     at Array.map (<anonymous>)
     at Function.create (D:\Rwan\back-end node\training\Back_Team_2\server\node_modules\mongoose\lib\model.js:2792:34)
     at D:\Rwan\back-end node\training\Back_Team_2\server\src\controllers\job.control.js:5:30
+[2023-11-16 10:20:10.801 AM] ReferenceError: mobileNumber is not defined
+    at F:\Academy\Back_Team_2\src\controllers\userController.js:37:33
+    at asyncUtilWrap (F:\Academy\Back_Team_2\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Academy\Back_Team_2\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Academy\Back_Team_2\node_modules\express\lib\router\route.js:144:13)
+    at F:\Academy\Back_Team_2\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (F:\Academy\Back_Team_2\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Academy\Back_Team_2\node_modules\express\lib\router\route.js:144:13)
+    at F:\Academy\Back_Team_2\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Academy\Back_Team_2\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Academy\Back_Team_2\src\middlewares\authenticateMiddleware.js:14:3
+[2023-11-16 10:26:40.195 AM] Error: ENOENT: no such file or directory, open 'F:\Academy\Back_Team_2\src\uploads\users\1700123200191--e2f1567a-616c-454a-a959-4fe03e25f640--award03.png'

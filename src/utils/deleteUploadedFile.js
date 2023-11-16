@@ -9,6 +9,7 @@ const deleteUploadedFile = async function () {
     let foundImageField = null;
     try {
         const doc = await this.model.findOne(this.getQuery());
+        if(!doc) return
         for (const field of imageFields) {
             if (doc[field]) {
                 foundImageField = field;
