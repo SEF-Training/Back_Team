@@ -57,10 +57,6 @@ const examController = {
 	}),
 
 	createExam: asyncHandler(async (req, res) => {
-		if (req.file) {
-			req.body.cover = `/Exams/${req.file.filename}`;
-		}
-
 		const newExam = new Exam(req.body);
 
 		if (!newExam) {
@@ -82,9 +78,6 @@ const examController = {
 	}),
 
 	updateExam: asyncHandler(async (req, res) => {
-		if (req.file) {
-			req.body.cover = `/Exams/${req.file.filename}`;
-		}
 		const { _id } = req.params;
 
 		const updatedExam = await Exam.findOneAndUpdate(
