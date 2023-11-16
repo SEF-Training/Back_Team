@@ -19,6 +19,9 @@ exports.getAllCourses = asyncHandler(async (req, res) => {
 // @route   GET /api/courses/admin
 // @access  Private
 exports.createCourse = asyncHandler(async (req, res) => {
+	if (req.file) {
+		req.body.image = `/courses/${req.file.filename}`;
+	}
 	console.log('req.body', req.body);
 	const newCourse = await Course.create(req.body);
 	if (newCourse) {
@@ -186,7 +189,9 @@ exports.autoUpdateCourseStatus = async () => {
 			}
 		}
 	} catch (error) {
-		console.log('something went wrong while auto update course Status', error);
+		if (process.env.NODE_ENV == 'development') {
+			console.log('something went wrong while auto update course Status', error);
+		}
 		errorLogger.error(
 			'something went wrong while auto update course Status' + error?.message
 		);

@@ -80,8 +80,8 @@ const courseSchema = new Schema(
 	{ timestamps: true }
 );
 
-courseSchema.virtual('courses', {
-	ref: 'courses',
+courseSchema.virtual('Courses', {
+	ref: 'Courses',
 	localField: '_id',
 	foreignField: 'Instructor',
 });
@@ -89,6 +89,12 @@ courseSchema.virtual('courses', {
 courseSchema.virtual('students', {
 	ref: 'User',
 	localField: 'enrolledStudents',
+	foreignField: '_id',
+});
+
+courseSchema.virtual('exam', {
+	ref: 'Exam',
+	localField: 'exams',
 	foreignField: '_id',
 });
 

@@ -5,12 +5,12 @@ const newCourseValidation = Joi.object({
 	name: Joi.string().required().min(3).max(50).messages({
 		'any.required': 'Please enter a course name',
 		'any.min': 'Course name must be between 3 and 50 characters',
-		'any.mix': 'Course name must be between 3 and 50 characters',
+		'any.max': 'Course name must be between 3 and 50 characters',
 	}),
 	level: Joi.number().required().min(1).max(10).integer().messages({
 		'any.required': 'Please provide a course level',
 		'any.min': 'Course level must be between 3 and 50 characters',
-		'any.mix': 'Course level must be between 3 and 50 characters',
+		'any.max': 'Course level must be between 3 and 50 characters',
 	}),
 	status: Joi.string()
 		.valid(...enum_coursesStatus)
@@ -26,7 +26,7 @@ const newCourseValidation = Joi.object({
 	assessments: Joi.array().items(Joi.string()),
 	materials: Joi.array().items(Joi.string()),
 	introduction: Joi.string(),
-	image: Joi.string().trim(),
+	image: Joi.string(),
 	certificate: Joi.boolean().required(),
 	duration: Joi.string().required(),
 	Start_date: Joi.date()
@@ -43,11 +43,11 @@ const newCourseValidation = Joi.object({
 const updateCourseValidation = Joi.object({
 	name: Joi.string().min(3).max(50).messages({
 		'any.min': 'Course name must be between 3 and 50 characters',
-		'any.mix': 'Course name must be between 3 and 50 characters',
+		'any.max': 'Course name must be between 3 and 50 characters',
 	}),
 	level: Joi.number().min(1).max(10).integer().messages({
 		'any.min': 'Course level must be between 3 and 50 characters',
-		'any.mix': 'Course level must be between 3 and 50 characters',
+		'any.max': 'Course level must be between 3 and 50 characters',
 	}),
 	status: Joi.string()
 		.valid(...enum_coursesStatus)
@@ -61,7 +61,7 @@ const updateCourseValidation = Joi.object({
 	assessments: Joi.array().items(Joi.string()),
 	materials: Joi.array().items(Joi.string()),
 	introduction: Joi.string(),
-	image: Joi.string().trim(),
+	image: Joi.string(),
 	certificate: Joi.boolean(),
 	duration: Joi.string(),
 	Start_date: Joi.date(),
