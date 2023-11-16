@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { upload } = require('../middlewares/uploadMiddleware');
+const { upload, uploadFile } = require('../middlewares/uploadMiddleware');
 const { validationMiddleware } = require('../middlewares/validationMiddleware');
 const { authorizeAdmin, authenticate } = require('../middlewares/authenticateMiddleware');
 const validateObjectId = require('../middlewares/validateObjectIdMiddleware');
@@ -13,7 +13,7 @@ router
 	.route('/admin')
 	.all(authorizeAdmin)
 	.post(
-		upload.single('certificate_file'),
+		uploadFile.single('certificate_file'), // allow upload images/files-pdf,doc.docx
 		validationMiddleware(newCertificateValidation),
 		createCertificate
 	)
@@ -25,7 +25,7 @@ router
 	.all(authorizeAdmin, validateObjectId)
 	.get(getSingleCertificate)
 	.patch(
-		upload.single('certificate_file'),
+		uploadFile.single('certificate_file'), // allow upload images/files-pdf,doc.docx
 		validationMiddleware(updateCertificateValidation),
 		updateCertificate
 	)

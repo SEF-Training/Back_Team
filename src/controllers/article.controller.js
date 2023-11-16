@@ -98,7 +98,7 @@ const articleController = {
 			status = req.body?.isPublished;
 		}
 		const updatedArticle = await Article.findByIdAndUpdate(
-			id,
+			{_id: id},
 			{ ...req.body, isPublished: status },
 			{ new: true }
 		);
@@ -120,7 +120,7 @@ const articleController = {
 	deleteArticle: asyncHandler(async (req, res) => {
 		const { id } = req.params;
 
-		const deletedArticle = await Article.findByIdAndDelete(id);
+		const deletedArticle = await Article.findByIdAndDelete({ _id: id });
 
 		if (!deletedArticle) {
 			return res.status(404).json({ success: false, error: 'Article not found' });

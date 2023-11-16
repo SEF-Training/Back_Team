@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "b16f9b0a-41cd-451c-84f4-02afbfb16629",
+		"_postman_id": "a8488556-3555-4680-b653-451609ce7d3b",
 		"name": "seff-academy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24484357"
+		"_exporter_id": "29103894"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t \"firstName\": \"user\",\r\n        \"lastName\":\"user\",\r\n        \"password\": \"Password1230!\"\r\n}",
+							"raw": "{\r\n\t \"firstName\": \"user2\",\r\n        \"lastName\":\"user2\",\r\n        \"password\": \"Password1230!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"userId\": \"0315872729\",\r\n\t\"password\": \"Password1230!\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"2505367872\", //admin\r\n\t// \"userId\": \"2336301150\",// instructor \r\n    // \"userId\": \"4215417960\",\r\n    // \"userId\": \"2856475638\",\r\n\t\"password\": \"Password1230!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -297,6 +297,972 @@
 								"users",
 								"delete-user",
 								"6547fc89c5abdc4807128bf8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "Get All courses -admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"mongodb3\",\r\n            \"level\": 1,\r\n            \"status\": \"upcoming\",\r\n            \"sessions\": 9,\r\n            \"languages\": [\r\n                \"arabic\",\r\n                \"english\"\r\n            ],\r\n            \"materials\": [],\r\n            \"certificate\": true,\r\n            \"duration\": \"2 months\",\r\n            \"start_date\": \"2023-11-12T19:27:23.185Z\",\r\n            \"publish_date\": \"2023-11-12T19:27:23.185Z\",\r\n            \"Instructor\": \"654857e4f1b702f467672c4a\",\r\n            \"exams\": [],\r\n            \"enrolledStudents\": []\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/admin",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get instructor courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/instructor/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"instructor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/student/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"student",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student single course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/65498388785d51308ac7cff0",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"65498388785d51308ac7cff0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get instructor single course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/instructor/65498388785d51308ac7cff0",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"instructor",
+								"65498388785d51308ac7cff0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One course -admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{seff}}/courses/admin/65498388785d51308ac7cff0",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"admin",
+								"65498388785d51308ac7cff0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create By Admin",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "level",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "upcoming",
+									"type": "text"
+								},
+								{
+									"key": "sessions",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "languages",
+									"value": "Arabic",
+									"type": "text"
+								},
+								{
+									"key": "certificate",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "12-12-2023",
+									"type": "text"
+								},
+								{
+									"key": "Instructor",
+									"value": "654857e4f1b702f467672c4a",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "2 months",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "mongodb55",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/user-297566_640.jpg"
+								},
+								{
+									"key": "languages",
+									"value": "\"english\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/courses/admin/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "React js 99",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "ended",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/default_female600x600-5cdb53.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/courses/admin/65564b8ebb7bdaf3bf1b2777",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"admin",
+								"65564b8ebb7bdaf3bf1b2777"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete course -admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Taha",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Hamdy",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Gericht-MultiPages/src/assets/award01.png"
+								},
+								{
+									"key": "city",
+									"value": "alex",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/courses/admin/65564b8ebb7bdaf3bf1b2777",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"admin",
+								"65564b8ebb7bdaf3bf1b2777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "certificate",
+			"item": [
+				{
+					"name": "Get All Certificate-admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/admin/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student Certificates",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/student/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"student",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Certificate -admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/admin/6552969c2c8b6b2c6046938e",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"admin",
+								"6552969c2c8b6b2c6046938e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create By Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "certificate_file",
+									"type": "file",
+									"src": "/D:/MUSTAFA/Cours Web devlopment/Docments/React Interview Questions.pdf"
+								},
+								{
+									"key": "acquired_date",
+									"value": "2025-11-06T02:10:15.834Z",
+									"type": "text"
+								},
+								{
+									"key": "student",
+									"value": "6549abb0ec7e17967708cfe3",
+									"type": "text"
+								},
+								{
+									"key": "course",
+									"value": "65498388785d51308ac7cff0",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/admin/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update certificate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "acquired_date",
+									"value": "2025-11-06T02:10:15.834Z",
+									"type": "text"
+								},
+								{
+									"key": "course",
+									"value": "6549ab87ec7e17967708cfdd",
+									"type": "text"
+								},
+								{
+									"key": "certificate_file",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/my-CV.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/admin/6552916d237949245e63ce69",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"admin",
+								"6552916d237949245e63ce69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Certificate",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Taha",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Hamdy",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Gericht-MultiPages/src/assets/award01.png"
+								},
+								{
+									"key": "city",
+									"value": "alex",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/certificates/admin/6552916d237949245e63ce69",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"certificates",
+								"admin",
+								"6552916d237949245e63ce69"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "Get All articles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/courses/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{seff}}/courses/654805a44eb044267862e815",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"courses",
+								"654805a44eb044267862e815"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create By Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Doe 6",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/default_user-95.png"
+								},
+								{
+									"key": "isPublished",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "publish_date",
+									"value": "2023-12-12T19:27:23.185Z",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "business",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/articles/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update By Admin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Doe 6",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/default_user-95.png"
+								},
+								{
+									"key": "isPublished",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "publish_date",
+									"value": "2023-12-12T19:27:23.185Z",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "business",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/articles/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete article",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Taha",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Hamdy",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Gericht-MultiPages/src/assets/award01.png"
+								},
+								{
+									"key": "city",
+									"value": "alex",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/articles/6555221fefa0d88c0a61cafe",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"articles",
+								"6555221fefa0d88c0a61cafe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "exam",
+			"item": [
+				{
+					"name": "Get All articles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/exams/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"exams",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{seff}}/exams/655547dc85dd0da76f8932ac",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"exams",
+								"655547dc85dd0da76f8932ac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create By Instructor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Doe 6",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/MUSTAFA/Downloads/default_user-95.png"
+								},
+								{
+									"key": "isPublished",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "publish_date",
+									"value": "2023-12-12T19:27:23.185Z",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "business",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/articles/",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update By Instructor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"course\":\"65498388785d51308ac7cff0\",\r\n    \"Instructor\":\"654857e4f1b702f467672c4a\",\r\n    \"date\":\"2023-12-11T22:00:00.000Z\",\r\n    \"duration\":\"9 hours\",\r\n    \"link\":\"mtymtmthttp://hours.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{seff}}/exams/6555591feb73c4480b8032bc",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"exams",
+								"6555591feb73c4480b8032bc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Certificate",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Taha",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Hamdy",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/Gericht-MultiPages/src/assets/award01.png"
+								},
+								{
+									"key": "city",
+									"value": "alex",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{seff}}/exams/6555591feb73c4480b8032bc",
+							"host": [
+								"{{seff}}"
+							],
+							"path": [
+								"exams",
+								"6555591feb73c4480b8032bc"
 							]
 						}
 					},

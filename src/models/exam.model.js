@@ -34,6 +34,12 @@ const examSchema = new Schema({
 	},
 });
 
+examSchema.virtual('courses', {
+	ref: 'Course',
+	localField: 'course',
+	foreignField: 'exams',
+});
+
 examSchema.pre('findOneAndUpdate', deleteUploadedFile);
 examSchema.pre('findOneAndDelete', deleteUploadedFile);
 

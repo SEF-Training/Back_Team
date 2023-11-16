@@ -1,6 +1,5 @@
 const Certificate = require('../models/certificate.model');
 const asyncHandler = require('express-async-handler');
-const mongoose = require('mongoose');
 const { paginate } = require('../utils/pagination');
 const { infoLogger } = require('../services/infoLoggerService');
 

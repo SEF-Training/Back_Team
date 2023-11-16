@@ -3,7 +3,6 @@ const router = express.Router();
 const { upload } = require('../middlewares/uploadMiddleware');
 const { validationMiddleware } = require('../middlewares/validationMiddleware');
 const {
-	authorizeAdmin,
 	authenticate,
 	authorizeInstructor,
 } = require('../middlewares/authenticateMiddleware');
@@ -24,10 +23,10 @@ router.post(
 router.get('/', authenticate, examController.getAllExams);
 
 // single articles routes operations --
-router.get('/:_id', authenticate, validateObjectId, examController.getExam);
+router.get('/:id', authenticate, validateObjectId, examController.getExam);
 
 router
-	.route('/:_id')
+	.route('/:id')
 	.all(authorizeInstructor, validateObjectId)
 	.patch(validationMiddleware(updateExamValidation), examController.updateExam)
 	.delete(examController.deleteExam);

@@ -43,14 +43,12 @@ const examController = {
 			queryRole = { course: course?._id };
 		}
 
-		const exam = await Exam.findOne({ id, ...queryRole });
+		const exam = await Exam.findOne({ _id: id, ...queryRole });
 		if (!exam) {
-			return res
-				.status(404)
-				.json({
-					success: false,
-					error: 'Exam not found or you unauthorized to show this exam',
-				});
+			return res.status(404).json({
+				success: false,
+				error: 'Exam not found or you unauthorized to show this exam',
+			});
 		}
 
 		res.status(200).json({ success: true, data: exam });
@@ -81,7 +79,7 @@ const examController = {
 		const { id } = req.params;
 
 		const updatedExam = await Exam.findOneAndUpdate(
-			{ id, Instructor: req.user?._id },
+			{ _id: id, Instructor: req.user?._id },
 			req.body,
 			{ new: true }
 		);
@@ -103,7 +101,7 @@ const examController = {
 	deleteExam: asyncHandler(async (req, res) => {
 		const { id } = req.params;
 
-		const deletedExam = await Exam.findOneAndDelete({ id, Instructor: req.user?._id });
+		const deletedExam = await Exam.findOneAndDelete({ _id: id, Instructor: req.user?._id });
 
 		if (!deletedExam) {
 			return res.status(404).json({ success: false, error: 'Exam not found' });
@@ -120,7 +118,6 @@ const examController = {
 };
 
 module.exports = examController;
-
 
 // ------------------------------------ auto Update status ------------------------
 exports.autoUpdateExamStatus = async () => {

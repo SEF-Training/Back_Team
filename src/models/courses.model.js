@@ -1,6 +1,6 @@
-
 const mongoose = require('mongoose');
 const { enum_coursesStatus } = require('../config/enums');
+const { deleteUploadedFile } = require('../utils/deleteUploadedFile');
 const { Schema } = mongoose;
 
 const courseSchema = new Schema(
@@ -53,7 +53,7 @@ const courseSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		Start_date: {
+		start_date: {
 			type: Date,
 			required: [true, 'please select the start date'],
 			default: Date.now(),
@@ -67,9 +67,39 @@ const courseSchema = new Schema(
 			required: [true, 'Please enter an Instructor'],
 			ref: 'User',
 		},
-	}
-	// { timestamps: true }
+		// enrolledStudents: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
+		enrolledStudents: [
+			{
+				student: { type: mongoose.Types.ObjectId, ref: 'User' },
+				status: String,
+				score: Number,
+			},
+		],
+		exams: [{ type: mongoose.Types.ObjectId, ref: 'Exam' }],
+	},
+	{ timestamps: true }
 );
+
+courseSchema.virtual('instructor', {
+	ref: 'User',
+	localField: 'Instructor',
+	foreignField: '_id',
+});
+
+courseSchema.virtual('students', {
+	ref: 'User',
+	localField: 'enrolledStudents',
+	foreignField: '_id',
+});
+
+courseSchema.virtual('exam', {
+	ref: 'Exam',
+	localField: 'exams',
+	foreignField: '_id',
+});
+
+courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
+courseSchema.pre('findOneAndDelete', deleteUploadedFile);
 
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;

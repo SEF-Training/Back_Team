@@ -1,1 +1,9 @@
 /node_modules
+
+/logs
+
+/uploads/courses
+/uploads/certificates
+/uploads/articles
+/uploads/users
+/uploads/jobs
