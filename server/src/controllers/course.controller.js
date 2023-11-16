@@ -22,7 +22,6 @@ exports.createCourse = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.image = `/courses/${req.file.filename}`;
 	}
-	console.log('req.body', req.body);
 	const newCourse = await Course.create(req.body);
 	if (newCourse) {
 		res.status(201).send({
@@ -30,7 +29,7 @@ exports.createCourse = asyncHandler(async (req, res) => {
 			message: 'New course created',
 			data: newCourse,
 		});
-		logger.info(`Created a new course with id: ${newCourse._id}`);
+		infoLogger.info(`Created a new course with id: ${newCourse._id}`);
 	}
 });
 
