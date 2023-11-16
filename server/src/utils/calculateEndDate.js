@@ -10,6 +10,8 @@ exports.calculateEndDate = (startDate, duration) => {
 		endDate.setHours(endDate.getHours() + parseInt(duration) * 7 * 24);
 	} else if (duration.includes('day')) {
 		endDate.setHours(endDate.getHours() + parseInt(duration) * 24);
+	} else if (duration.includes('hour')) {
+		endDate.setHours(endDate.getHours() + parseInt(duration));
 	}
 	console.log('endDate2:', endDate);
 
