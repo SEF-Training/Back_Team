@@ -120,3 +120,212 @@
     at writeOrBuffer (node:internal/streams/writable:392:12)
     at _write (node:internal/streams/writable:333:10)
     at Writable.write (node:internal/streams/writable:337:10)
+[2023-11-25 08:03:57.648 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:03:57.845 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:03:58.109 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:01.585 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:02.038 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:04.369 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:04.433 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:06.137 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:06.179 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:07.464 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:07.508 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:08.296 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:08.351 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:10.518 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:10.551 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:13.021 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:13.069 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:13.940 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-25 08:04:13.991 PM] ReferenceError: userModel is not defined
+    at F:\Training\server\src\controllers\auth.controller.js:30:22
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15

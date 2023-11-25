@@ -61,9 +61,5 @@ module.exports = {
         if (!deletedUser) return res.status(404).json({ success: false, error: "user not found." })
         res.status(200).json({ success: true, data: deletedUser._id });
     }),
-    getCurrentUserCtrl: asyncHandler(async (req, res) => {
-        const user = await User.findOne({ _id: req.user._id });
-        if (!user) return res.status(404).json({ success: false, error: "user not found." })
-        res.status(200).json({ success: true, data: user });
-    })
+
 }

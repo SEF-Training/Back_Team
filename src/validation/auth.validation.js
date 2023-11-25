@@ -15,13 +15,16 @@ module.exports = {
             'any.required': 'Password is required.',
             'string.empty': 'Password must not be empty.',
             'string.pattern.base': 'Password must contain at least 8 characters, including one digit, one lowercase letter, one uppercase letter, and one special character.'
-        }) 
+        })
     }),
     loginSchema: Joi.object({
-        userId: Joi.string().pattern(userIdRegex).required().messages({
-            'any.required': 'User ID is required',    
-            'string.base': 'User ID must be a 10-digit number'
-          }),
+        userId: Joi.number().integer().min(1000000000).max(9999999999).required().messages({
+            'any.required': 'User ID is required',
+            'number.base': 'User ID must be a 10-digit number',
+            'number.integer': 'User ID must be an integer',
+            'number.min': 'User ID must be a 10-digit number',
+            'number.max': 'User ID must be a 10-digit number',
+        }),
         password: Joi.string().pattern(passwordRegex).required().messages({
             'any.required': 'Password is required.',
             'string.empty': 'Password must not be empty.',

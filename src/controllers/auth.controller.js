@@ -17,14 +17,19 @@ module.exports = {
         const matchPassword = await userExist.comparePassword(password);
         if (!matchPassword) return res.status(400).json({ success: false, error: "Incorrect password. Please check your password and try again." });
         const { accessToken, refreshToken } = userExist.generateTokens();
-        res.cookie('accessToken', accessToken, { httpOnly: true });
-        res.cookie('refreshToken', refreshToken, { httpOnly: true });
+        res.cookie('accessToken', accessToken, {withCredentials: true, httpOnly: false,});
+        res.cookie('refreshToken', refreshToken, {withCredentials: true, httpOnly: false, });
         res.status(200).json({ success: true, data: userExist });
     }),
     logoutCtrl: asyncHandler(async (req, res) => {
         res.clearCookie("accessToken");
         res.clearCookie("refreshToken");
         res.send({ success: true });
+    }),
+    getCurrentUserCtrl: asyncHandler(async (req, res) => {
+        const user = await User.findOne({ _id: req.user._id });
+        if (!user) return res.status(404).json({ success: false, error: "user not found." })
+        res.status(200).json({ success: true, data: user });
     }),
     refreshAccessTokenCtrl: asyncHandler(async (req, res) => {
         const refreshToken = req.cookies.refreshToken;
