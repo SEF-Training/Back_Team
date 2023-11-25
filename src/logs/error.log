@@ -1,0 +1,122 @@
+[2023-11-17 05:33:40.267 AM] Error: ENOENT: no such file or directory, open 'C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\uploads\1700192020260--4c14c7ac-3bf6-4bca-8d88-836db14f428a.pdf'
+[2023-11-17 05:35:24.813 AM] TypeError: application.create is not a function
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:18:44
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at done (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:49:68)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:155:11
+[2023-11-17 05:36:22.415 AM] ReferenceError: newapplications is not defined
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:31:36
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-11-17 05:43:17.783 AM] TypeError: Cannot convert object to primitive value
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:18:24
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at done (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:49:68)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:155:11
+[2023-11-17 06:04:21.340 AM] TypeError: application.findByIdAndUpdate is not a function
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:38:41
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at done (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:49:68)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\multer\lib\make-middleware.js:155:11
+[2023-11-17 06:05:51.959 AM] ReferenceError: applications is not defined
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:7:54
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\authenticateMiddleware.js:9:3)
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:114:3)
+[2023-11-17 06:10:44.345 AM] ReferenceError: Cannot access 'application' before initialization
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:59:23
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at validateObjectId (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\validateObjectIdMiddleware.js:7:3)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+[2023-11-17 06:11:08.725 AM] ReferenceError: Cannot access 'application' before initialization
+    at C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\controllers\application.controller.js:59:23
+    at asyncUtilWrap (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:140:7)
+    at validateObjectId (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\src\middlewares\validateObjectIdMiddleware.js:7:3)
+    at Layer.handle [as handle_request] (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Ebn_Daif\Desktop\New folder (2)\sef-training-Backend-full\node_modules\express\lib\router\route.js:144:13)
+[2023-11-17 08:02:34.378 AM] Error: ENOENT: no such file or directory, open 'D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\uploads\1700200954376--ba48d368-22d1-4603-8480-4522e843bad7.pdf'
+[2023-11-17 08:03:12.661 AM] Error: ENOENT: no such file or directory, open 'D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\uploads\1700200992659--bf206b88-7e97-4694-9df5-87df216ce942.pdf'
+[2023-11-17 08:13:55.685 AM] ValidationError: Application validation failed: cv: Path `cv` is required.
+    at Document.invalidate (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\mongoose\lib\document.js:3174:32)
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\mongoose\lib\document.js:2967:17
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\mongoose\lib\schemaType.js:1367:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+[2023-11-17 08:14:32.465 AM] ReferenceError: Cannot access 'Application' before initialization
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\src\controllers\application.controller.js:36:23
+    at asyncUtilWrap (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\route.js:144:13)
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\route.js:144:13)
+    at done (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:49:68)
+    at Multipart.<anonymous> (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:166:7)
+[2023-11-17 08:15:03.119 AM] ReferenceError: Cannot access 'Application' before initialization
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\src\controllers\application.controller.js:36:23
+    at asyncUtilWrap (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\route.js:144:13)
+    at D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\src\middlewares\validationMiddleware.js:11:7
+    at Layer.handle [as handle_request] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\express\lib\router\route.js:144:13)
+    at done (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:45:7)
+    at indicateDone (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:49:68)
+    at Multipart.<anonymous> (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:166:7)
+[2023-11-17 08:33:46.513 AM] undefined
+[2023-11-17 08:36:27.687 AM] MulterError: Field name missing
+    at abortWithCode (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:71:22)
+    at Multipart.<anonymous> (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:76:37)
+    at Multipart.emit (node:events:514:28)
+    at SBMH.ssCb [as _cb] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\busboy\lib\types\multipart.js:537:16)
+    at feed (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+[2023-11-17 08:36:51.993 AM] MulterError: Field name missing
+    at abortWithCode (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:71:22)
+    at Multipart.<anonymous> (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\multer\lib\make-middleware.js:76:37)
+    at Multipart.emit (node:events:514:28)
+    at SBMH.ssCb [as _cb] (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\busboy\lib\types\multipart.js:537:16)
+    at feed (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\MUSTAFA\Cours Web devlopment\Training\Training 2023-09 Backend\code folder\sef-training-Backend-full-master\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)

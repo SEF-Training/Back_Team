@@ -1,0 +1,35 @@
+[2023-11-17 05:54:41] info: New application is Applied: 6556e4017ba45a5154c3cb71 by | 6556da84c45b500030b776f6 
+[2023-11-17 05:58:52] info: New application is Applied: 6556e4fc3cf508c34016e95d by | 6556da84c45b500030b776f6 
+[2023-11-17 06:05:31] info: certificate 6556e4fc3cf508c34016e95d was updated successfully by | 6556da84c45b500030b776f6
+[2023-11-17 06:16:33] info: application  6556e4fc3cf508c34016e95d was deleted successfully by 6556da84c45b500030b776f6
+[2023-11-17 08:10:03] info: New application is Applied: 655703bb6ef3cb54a2421e8d by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:11:00] info: New application is Applied: 655703f46ef3cb54a2421e8f by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:11:04] info: New application is Applied: 655703f86ef3cb54a2421e91 by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:17:02] info: image src/uploads//applications/1700201464118--529befb7-39bf-49cb-b874-99adfbcf760f.pdf was successfully deleted
+[2023-11-17 08:17:03] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:17:23] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:19:12] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:19:34] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:19:54] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:20:25] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:21:33] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:21:41] info: image src/uploads//applications/1700202093243--3ddb7728-a9b4-4c0c-b34c-b0ab25a6ae53.pdf was successfully deleted
+[2023-11-17 08:21:41] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:22:07] info: image src/uploads//applications/1700202101315--c777b0ad-0c5d-4495-941e-0f7ab3ce8df2.pdf was successfully deleted
+[2023-11-17 08:22:07] info: Application 655703f86ef3cb54a2421e91 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:22:52] info: image src/uploads//applications/1700202127857--9902902e-4392-43b7-b6b6-6ff4664a808f.pdf was successfully deleted
+[2023-11-17 08:22:52] info: application  655703f86ef3cb54a2421e91 was deleted successfully by 65484b07cff9e283011d38f4
+[2023-11-17 08:23:22] info: New application is Applied: 655706d931f26b83fd4081d3 by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:27:53] info: article Doe 6 | 655707e931f26b83fd4081da | Article was created successfully by user 65484b07cff9e283011d38f4
+[2023-11-17 08:28:25] info: article Doe 677 | 65551f239f26a118de33a2af | Article was updated successfully by user 65484b07cff9e283011d38f4
+[2023-11-17 08:28:41] info: article Doe 6 | 655707e931f26b83fd4081da | Article was deleted successfully by user 65484b07cff9e283011d38f4
+[2023-11-17 08:29:05] info: Created a new certificate with id: 6557083131f26b83fd4081e5 by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:29:49] info: Created a new certificate with id: 6557085d31f26b83fd4081e7 by | 65484b07cff9e283011d38f4 
+[2023-11-17 08:31:23] info: certificate 6557085d31f26b83fd4081e7 was updated successfully by | 65484b07cff9e283011d38f4
+[2023-11-17 08:31:39] info: certificate  6557085d31f26b83fd4081e7 was deleted successfully by 65484b07cff9e283011d38f4
+[2023-11-17 08:34:40] info: Created a new course with id: 6557098031f26b83fd4081f5
+[2023-11-17 08:34:48] info: Created a new course with id: 6557098831f26b83fd4081f7
+[2023-11-17 08:36:06] info: course React js 99 | 65558572c380a4cd976d2f0a was updated successfully by 65484b07cff9e283011d38f4
+[2023-11-17 08:37:03] info: course React js 99 | 65558572c380a4cd976d2f0a was updated successfully by 65484b07cff9e283011d38f4
+[2023-11-17 08:37:53] info: image src/uploads//courses/1700202880298--63350c48-d531-40b4-b3ca-ce089ccde089.png was successfully deleted
+[2023-11-17 08:37:53] info: course mongodb55 | 6557098031f26b83fd4081f5 was deleted successfully by 65484b07cff9e283011d38f4
