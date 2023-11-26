@@ -45,14 +45,13 @@ module.exports = {
         res.status(200).json({ success: true, data: updatedUser });
     }),
     updateUserProfileCtrl: asyncHandler(async (req, res) => {
-        if (req.file) req.body.profileImage = `/users/${req.file.filename}`
-        const userHimSelf = req.user._id.toString() === req.params.id.toString()
-        if (!userHimSelf) return res.status(403).json({ success: false, error: "only users can update themselves" })
-        if (req.body.mobileNumber) {
-            const existingUser = await User.findOne({ _id: { $ne: req.params.id }, $or: [{ mobileNumber: req.body.mobileNumber }] });
+        console.log("req.file",req.file)
+        if (req.file) req.body.profileImage = `users/${req.file.filename}`
+      if (req.body.mobileNumber) {
+            const existingUser = await User.findOne({ _id: { $ne: req.user._id }, $or: [{ mobileNumber: req.body.mobileNumber }] });
             if (existingUser) return res.status(400).json({ success: false, error: `This MobileNumber already in use ..!` })
         }
-        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+        const updatedUser = await User.findOneAndUpdate({ _id: req.user._id }, req.body, { new: true });
         if (!updatedUser) return res.status(404).json({ success: false, error: "user not found." })
         res.status(200).json({ success: true, data: updatedUser });
     }),
