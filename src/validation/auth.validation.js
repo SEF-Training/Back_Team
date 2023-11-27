@@ -18,7 +18,7 @@ module.exports = {
         })
     }),
     loginSchema: Joi.object({
-        userId: Joi.number().integer().min(1000000000).max(9999999999).required().messages({
+        userId: Joi.string().length(10).required().messages({
             'any.required': 'User ID is required',
             'number.base': 'User ID must be a 10-digit number',
             'number.integer': 'User ID must be an integer',

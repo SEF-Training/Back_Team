@@ -11,7 +11,7 @@ module.exports = {
             'any.required': 'First name is required.',
             'string.empty': 'First name must not be empty.',
         }),
-        score: Joi.string().required().messages({
+        score: Joi.number().integer().required().messages({
             'any.required': 'score is required.',
             'string.empty': 'score must not be empty.',
         }),
@@ -27,7 +27,7 @@ module.exports = {
             'any.required': 'Mobile number is required.',
             'number.base': 'Mobile number must be a valid integer.',
         }),
-        userId: Joi.string().pattern(userIdRegex).messages({
+        userId: Joi.string().pattern(userIdRegex).allow('').messages({
             'string.base': 'User ID must be a string.',
             'string.pattern': 'User ID must be a 10-digit number.'
         }),
@@ -44,7 +44,7 @@ module.exports = {
         firstName: Joi.string().messages({
             'string.empty': 'First name must not be empty.',
         }),
-        score: Joi.string().messages({
+        score: Joi.number().integer().messages({
             'string.empty': 'score must not be empty.',
         }),
         accountStatus: Joi.string().valid('Active', 'Inactive').messages({
