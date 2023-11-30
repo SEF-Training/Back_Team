@@ -10,15 +10,26 @@ const deleteUploadedFile = async function () {
   let foundImageField = null;
   
   try {
+    const update = this.getUpdate() || {};
     const doc = await this.model.findOne(this.getQuery());
+    
     if (!doc) return;
 
     for (const field of imageFields) {
-      if (doc[field] && field in this.getUpdate() && this.getUpdate()[field] !== null) {
+      if (doc[field] && field in update && update[field] !== null) {
         foundImageField = field;
         break;
       }
     }
+    // const doc = await this.model.findOne(this.getQuery());
+    // if (!doc) return;
+
+    // for (const field of imageFields) {
+    //   if (doc[field] && field in this.getUpdate() && this.getUpdate()[field] !== null) {
+    //     foundImageField = field;
+    //     break;
+    //   }
+    // }
 
     if (foundImageField) {
       let path = `src/uploads/${doc[foundImageField]}`;

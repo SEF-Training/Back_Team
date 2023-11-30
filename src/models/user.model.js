@@ -16,7 +16,7 @@ const userSchema = new Schema({
     country: { type: String },
     university: { type: String },
     nationality: { type: String },
-    profileImage: { type: String ,default:'https://cdn.pixabay.com/photo/2021/07/25/08/03/account-6491185_1280.png' },
+    profileImage: { type: String ,},
     graduationYear: { type: Number },
     mobileNumber: { type: Number },
     accountStatus: { type: String, enum: ["Active", "Inactive"], default: "Active" },

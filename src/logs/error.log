@@ -418,3 +418,124 @@
     at InsertOneOperation.execute (F:\Training\server\node_modules\mongodb\lib\operations\insert.js:48:19)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async executeOperationAsync (F:\Training\server\node_modules\mongodb\lib\operations\execute_operation.js:106:16)
+[2023-11-28 09:51:54.440 AM] ReferenceError: search is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:8:25)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-28 09:51:54.533 AM] ReferenceError: search is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:8:25)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-28 11:55:15.154 AM] TypeError: Cannot read properties of undefined (reading '_id')
+    at F:\Training\server\src\controllers\auth.controller.js:30:57
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (F:\Training\server\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at F:\Training\server\node_modules\express\lib\router\index.js:284:15
+[2023-11-30 05:56:09.287 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:09.296 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:18.411 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:18.418 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:19.736 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:19.741 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:20.761 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-11-30 05:56:20.766 AM] ReferenceError: userId is not defined
+    at paginate (F:\Training\server\src\utils\pagination.js:6:42)
+    at F:\Training\server\src\controllers\user.controller.js:8:51
+    at asyncUtilWrap (F:\Training\server\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:17:7
+    at authenticate (F:\Training\server\src\middlewares\authenticateMiddleware.js:9:3)
+    at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
+    at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
