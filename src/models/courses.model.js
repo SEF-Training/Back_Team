@@ -24,7 +24,7 @@ const courseSchema = new Schema(
 			trim: true,
 			lowercase: true,
 		},
-		sessions: {
+		lessons: {
 			type: Number,
 			required: [true, 'please provide sessions number'],
 		},
@@ -86,11 +86,12 @@ courseSchema.virtual('instructor', {
 	foreignField: '_id',
 });
 
-// courseSchema.virtual('students', {
-// 	ref: 'User',
-// 	localField: 'enrolledStudents.student',
-// 	foreignField: '_id',
-// });
+courseSchema.virtual('students', {
+	ref: 'User',
+	localField: 'enrolledStudents.student',
+	foreignField: '_id',
+	justOne: false,
+});
 
 courseSchema.virtual('exam', {
 	ref: 'Exam',
@@ -98,8 +99,18 @@ courseSchema.virtual('exam', {
 	foreignField: 'course',
 });
 
-courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
+// courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
 courseSchema.pre('findOneAndDelete', deleteUploadedFile);
+
+courseSchema.pre('findOneAndUpdate', async function (next) {
+	if (!this.isModified('image')) return next();
+	try {
+		deleteUploadedFile();
+		next();
+	} catch (error) {
+		next(error);
+	}
+});
 
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;

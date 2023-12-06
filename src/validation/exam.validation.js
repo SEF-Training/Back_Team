@@ -12,11 +12,15 @@ const newExamValidation = Joi.object({
 	link: Joi.string().uri().required().messages({
 		'any.required': 'Please provide a duration for this Exam',
 	}),
-	photo: Joi.string(),
+	// photo: Joi.string(),
 
-	status: Joi.string()
+	isPublished: Joi.boolean()
+		.required()
+		.messages({ 'any.required': 'please provide the exam published or draft' }),
+	
+		status: Joi.string()
 		.valid(...enum_examsStatus)
-		.default(enum_examsStatus[0])
+		// .default(enum_examsStatus[0])
 		.trim()
 		.messages({
 			'any.only': `Must be one of the following values: ${enum_examsStatus}`,
@@ -39,7 +43,9 @@ const updateExamValidation = Joi.object({
 
 	link: Joi.string().uri(),
 
-	photo: Joi.string(),
+	// photo: Joi.string(),
+
+	isPublished: Joi.boolean(),
 
 	status: Joi.string()
 		.valid(...enum_examsStatus)

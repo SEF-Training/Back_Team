@@ -1,7 +1,9 @@
 const Certificate = require('../models/certificate.model');
 const asyncHandler = require('express-async-handler');
-const { paginate } = require('../utils/pagination');
+const { User } = require('../models/user.model');
+const { paginate } = require('../utils/pagination3');
 const { infoLogger } = require('../services/infoLoggerService');
+const path = require('path');
 
 //************ */ certificate/ router ---------------------------------
 // @desc    Get all certificate
@@ -28,6 +30,13 @@ exports.createCertificate = asyncHandler(async (req, res) => {
 			message: 'Something went wrong while creating certificate',
 		});
 	}
+
+	// add new certificate _id to user.earnedCertificates
+	if (newCertificate?._id) {
+		await User.findByIdAndUpdate(req.body.student, {
+			earnedCertificates: newCertificate?._id,
+		});
+	}
 	res.status(201).send({
 		success: true,
 		data: newCertificate,
@@ -43,8 +52,10 @@ exports.createCertificate = asyncHandler(async (req, res) => {
 // @route   GET /api/certificate/admin/:id
 // @access  Private-admin
 exports.getSingleCertificate = asyncHandler(async (req, res) => {
-	const certificate = await Certificate.findById(req.params.id)
-		.populate('student course', 'firstName lastName name Instructor');
+	const certificate = await Certificate.findById(req.params.id).populate(
+		'student course',
+		'firstName lastName name Instructor'
+	);
 
 	if (!certificate) {
 		return res.status(404).send({ success: false, message: 'Certificate not found!' });
@@ -96,10 +107,14 @@ exports.deleteCertificate = asyncHandler(async (req, res) => {
 // @route	GET /api/certificate/student
 // @access	Private-student
 exports.studentGetCertificates = asyncHandler(async (req, res) => {
-	const certificates = await Certificate.find({ student: req.user._id }).populate(
-		'course.Instructor',
-		'firstName lastName -_id'
-	);
+	const certificates = await Certificate.find({ student: req.user._id }).populate({
+		path: 'course',
+		populate: {
+			path: 'Instructor',
+			model: 'User',
+			select: 'firstName lastName -_id',
+		},
+	});
 	if (!certificates) {
 		return res.status(404).json({ success: false, message: 'No certificate found' });
 	}

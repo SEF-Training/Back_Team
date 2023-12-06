@@ -14,7 +14,10 @@ const examSchema = new Schema({
 		required: [true, 'please provide the exam link'],
 		trim: true,
 	},
-
+	isPublished: {
+		type: Boolean,
+		required: [true, 'please provide the exam published or draft'],
+	},
 	date: {
 		type: Date,
 		required: [true, 'please provide the exam date'],

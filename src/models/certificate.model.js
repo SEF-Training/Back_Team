@@ -25,12 +25,11 @@ const certificateSchema = new Schema(
 			required: [true, 'Please provide a student'],
 			ref: 'User',
 		},
-		// upload_date: {
-		// 	type: Date,
-		// 	default: Date.now(),
-		// },
+		upload_date: {
+			type: Date,
+		},
 	},
-	{ timestamps: true }
+	// { timestamps: true }
 );
 
 certificateSchema.virtual('courses', {
