@@ -17,18 +17,15 @@ const newCertificateValidation = Joi.object({
 		.required()
 		.messages({ 'any.required': 'Please select the Student' }),
 
-	// publish_date: Joi.date().default(() => new Date()),
+	upload_date: Joi.date(),
 });
 
 const updateCertificateValidation = Joi.object({
 	certificate_file: Joi.string().trim(),
-
 	acquired_date: Joi.date(),
-
 	student: Joi.string(),
-
 	course: Joi.string(),
-	// publish_date: Joi.date(),
+	upload_date: Joi.date(),
 });
 
 module.exports = { newCertificateValidation, updateCertificateValidation };

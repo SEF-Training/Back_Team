@@ -12,16 +12,16 @@ const newCourseValidation = Joi.object({
 		'any.min': 'Course level must be integer number between 1 and 10',
 		'any.mix': 'Course level must be integer number between 1 and 10',
 	}),
-	status: Joi.string()
-		.valid(...enum_coursesStatus)
-		.required()
-		.trim()
-		.messages({
-			'any.required': 'Please provide a status for this course',
-			'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
-		}),
-	sessions: Joi.number().required().integer().min(1).max(99).integer().messages({
-		'any.required': 'please provide sessions number',
+	status: Joi.string(),
+	// 	.valid(...enum_coursesStatus)
+	// 	.required()
+	// 	.trim()
+	// 	.messages({
+	// 		'any.required': 'Please provide a status for this course',
+	// 		'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
+	// 	}),
+	lessons: Joi.number().required().integer().min(1).max(99).integer().messages({
+		'any.required': 'please provide lessons number',
 		'any.min': 'Course level must be between 1 and 99 characters',
 		'any.mix': 'Course level must be between 1 and 99 characters',
 	}),
@@ -59,14 +59,14 @@ const updateCourseValidation = Joi.object({
 		'any.min': 'Course level must be integer number between 1 and 10',
 		'any.mix': 'Course level must be integer number between 1 and 10',
 	}),
-	status: Joi.string()
-		.valid(...enum_coursesStatus)
-		.trim()
-		.messages({
-			'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
-		}),
-	sessions: Joi.number().integer().message('please provide sessions number'),
-	languages: Joi.string().trim(),
+	status: Joi.string(),
+	// 	.valid(...enum_coursesStatus)
+	// 	.trim()
+	// 	.messages({
+	// 		'any.only': `Must be one of the following values: ${enum_coursesStatus}`,
+	// 	}),
+	lessons: Joi.number().integer().message('please provide lessons number'),
+	language: Joi.string().trim(),
 	requirements: Joi.string(),
 	assessments: Joi.string(),
 	materials: Joi.string(),

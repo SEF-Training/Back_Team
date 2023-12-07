@@ -1,15 +1,41 @@
 const Course = require('../models/courses.model');
 const asyncHandler = require('express-async-handler');
-const { paginate } = require('../utils/pagination');
+const { paginate } = require('../utils/pagination3');
 const { calculateEndDate } = require('../utils/calculateEndDate');
 const { infoLogger } = require('../services/infoLoggerService');
+const { enum_coursesStatus } = require('../config/enums');
+
+const handelStatus = (date, duration, enums = ['up coming', 'on going', 'ended']) => {
+	const currentDate = Date.now();
+	const endDate = calculateEndDate(duration);
+
+	let status = '';
+	if (new Date(date) > currentDate) {
+		status = enums[0];
+	} else if (new Date(date) <= currentDate && new Date(date) < endDate) {
+		status = enums[1];
+	} else {
+		status = enums[2];
+	}
+	console.log('status', status);
+	return status;
+};
 
 //************ */ courses/ router ---------------------------------
 // @desc    Get all courses
 // @route   GET /api/courses/admin
 // @access  Private-admin
 exports.getAllCourses = asyncHandler(async (req, res) => {
-	const { error, data, pagination } = await paginate(Course, req);
+	console.log('req.params', req.params);
+	console.log('req.query', req.query);
+	const populateOptions = { path: 'Instructor', select: 'firstName lastName' };
+	const { error, data, pagination } = await paginate(
+		Course,
+		req,
+		{},
+		// req.query,
+		populateOptions
+	);
 	if (error) return res.status(404).json({ success: false, error });
 	res.status(200).json({ success: true, pagination, data });
 });
@@ -21,7 +47,13 @@ exports.createCourse = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.image = `/courses/${req.file.filename}`;
 	}
-	const newCourse = await Course.create(req.body);
+	console.log('req.body', req.body);
+	const status = handelStatus(
+		req.body?.start_date,
+		req.body?.duration,
+		enum_coursesStatus
+	);
+	const newCourse = await Course.create({ ...req.body, status });
 	if (newCourse) {
 		res.status(201).send({
 			success: true,
@@ -37,7 +69,16 @@ exports.createCourse = asyncHandler(async (req, res) => {
 // @route   GET /api/courses/admin/:id
 // @access  Private-admin
 exports.getSingleCourse = asyncHandler(async (req, res) => {
-	const course = await Course.findById(req.params.id);
+	const course = await Course.findById(req.params.id)
+		.populate({
+			path: 'Instructor',
+			select: 'firstName lastName',
+		})
+		.populate({
+			path: 'enrolledStudents.student',
+			model: 'User',
+			select: 'firstName lastName',
+		});
 	if (!course) {
 		return res.status(404).send({ success: false, message: 'course not found!' });
 	}
@@ -48,10 +89,36 @@ exports.getSingleCourse = asyncHandler(async (req, res) => {
 // @route   Patch /api/courses/admin/:id
 // @access  Private-admin
 exports.updateCourse = asyncHandler(async (req, res) => {
+	console.log('req.body', req.body);
+	console.log('req.params.id', req.params.id);
+	console.log('req.file', req.file);
 	if (req.file) {
 		req.body.image = `/courses/${req.file.filename}`;
 	}
-	const course = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
+	const status = handelStatus(
+		req.body?.start_date,
+		req.body?.duration,
+		enum_coursesStatus
+	);
+
+	const course = await Course.findByIdAndUpdate(
+		req.params.id,
+		{ ...req.body, status },
+		{ new: true }
+	)
+		// .populate('enrolledStudents.student');
+		// .populate('enrolledStudents.user', 'firstName lastName');
+		// .populate({
+		// 	path: 'enrolledStudents',
+		// 	select: 'student',
+		// 	model: 'user',
+		// 	populate: {
+		// 		path: '_id',
+		// 		model: 'user',
+		// 		select: 'firstName lastName',
+		// 	},
+		// });
+
 	if (!course) {
 		return res.status(404).send({ success: false, message: 'course not found!' });
 	}
@@ -87,10 +154,15 @@ exports.deleteCourse = asyncHandler(async (req, res) => {
 // @route   POST /api/courses/instructor
 // @access  Private-instructor
 exports.instructorGetCourses = asyncHandler(async (req, res) => {
-	const { error, data, pagination } = await paginate(Course, req, {
-		Instructor: req.user._id,
-		isPublished: true,
-	});
+	console.log('req.query', req.query);
+	console.log('req.params', req.params);
+	const populateOptions = { path: 'Instructor', select: 'firstName lastName' };
+	const { error, data, pagination } = await paginate(
+		Course,
+		req,
+		{ Instructor: req.user._id, isPublished: true },
+		populateOptions
+	);
 	if (error) return res.status(404).json({ success: false, message: error.message });
 
 	res.status(200).send({ success: true, pagination, data });
@@ -100,11 +172,13 @@ exports.instructorGetCourses = asyncHandler(async (req, res) => {
 // @route   POST /api/courses/instructor/:_id
 // @access  Private-instructor
 exports.instructorGetCourse = asyncHandler(async (req, res) => {
+	console.log('req.query', req.query);
 	const course = await Course.findOne({
 		_id: req.params.id,
 		Instructor: req.user?._id,
 		isPublished: true,
-	}).populate('enrolledStudents.student', 'firstName lastName userId');
+	});
+	// .populate('enrolledStudents.student', 'firstName lastName userId');
 
 	if (!course) {
 		return res.status(401).send({
@@ -119,14 +193,11 @@ exports.instructorGetCourse = asyncHandler(async (req, res) => {
 // @route	GET /api/courses/student
 // @access	Private-student
 exports.studentGetCourses = asyncHandler(async (req, res) => {
-	// const { error, data, pagination } = await paginate(Course, req, {
-	// 	enrolledStudents: req.user._id,
-	// });
-
 	const courses = await Course.find({
-		enrolledStudents: req.user._id,
+		'enrolledStudents.student': req.user._id,
 		isPublished: true,
 	}).populate('Instructor', 'firstName lastName -_id');
+
 	if (!courses) {
 		return res.status(404).json({ success: false, message: 'no courses found' });
 	}
@@ -140,10 +211,11 @@ exports.studentGetCourses = asyncHandler(async (req, res) => {
 exports.studentGetCourse = asyncHandler(async (req, res) => {
 	const course = await Course.findOne({
 		_id: req.params.id,
-		enrolledStudents: req.user._id,
+		'enrolledStudents.student': req.user._id,
 		isPublished: true,
-	}).populate('Instructor', 'firstName lastName -_id');
-	// .populate('enrolledStudents', 'firstName lastName -_id');
+	})
+		.select('enrolledStudents.length')
+		.populate('Instructor', 'firstName lastName -_id');
 
 	if (!course) {
 		return res.status(401).send({
@@ -160,7 +232,7 @@ exports.autoUpdateCourseStatus = async () => {
 	try {
 		const upcomingCourses = await Course.find({
 			start_date: { $lte: currentDate },
-			status: 'upcoming',
+			status: 'up coming',
 			isPublished: true,
 		});
 
@@ -169,14 +241,14 @@ exports.autoUpdateCourseStatus = async () => {
 		for (const course in upcomingCourses) {
 			await Course.findByIdAndUpdate(course?._id, { $set: { status: 'ongoing' } });
 			infoLogger.info(
-				`course ${course?.name} | ${course?._id} | status auto updated from 'upcoming' to 'ongoing'`
+				`course ${course?.name} | ${course?._id} | status auto updated from 'up coming' to 'ongoing'`
 			);
 		}
 
 		// update ended status---------------------------
 		const ongoingCourses = await Course.find({
 			start_date: { $lte: currentDate },
-			status: 'ongoing',
+			status: 'on going',
 			isPublished: true,
 		});
 
@@ -187,7 +259,7 @@ exports.autoUpdateCourseStatus = async () => {
 			if (currentDate >= endDate) {
 				await Course.findByIdAndUpdate(course?._id, { $set: { status: 'ended' } });
 				infoLogger.info(
-					`course ${course?.name} | ${course?._id} | status auto updated 'ongoing' from to 'ended`
+					`course ${course?.name} | ${course?._id} | status auto updated 'on going' from to 'ended`
 				);
 			}
 		}
