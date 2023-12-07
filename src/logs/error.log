@@ -462,3 +462,5 @@
     at SBMH.push (D:\Rwan\back-end node\training\SEFF_Acadimy\server\node_modules\streamsearch\lib\sbmh.js:104:16)
     at Multipart._write (D:\Rwan\back-end node\training\SEFF_Acadimy\server\node_modules\busboy\lib\types\multipart.js:567:19)
     at writeOrBuffer (node:internal/streams/writable:392:12)
+[2023-12-07 08:49:16.818 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1701974956693--a36a8067-1994-4bf3-b891-60cfdfee870b.jpg'
+[2023-12-07 08:49:52.147 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1701974992105--1405cdcc-a43f-403d-9912-b6230cd89c31.jpg'

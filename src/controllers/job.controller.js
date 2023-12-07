@@ -42,12 +42,28 @@ exports.getJob = asyncHandler(async(req,res)=>{
     })    
 })
 
-exports.getAllJobs = asyncHandler(async(req,res)=>{
-    const {error , data , pagination} = await paginate(Job , req)
-    if(error) return res.status(404).json({success: false, error})
-     res.status(200).json({success: true, pagination  , data})
+exports.getAllJobs = asyncHandler(async (req, res) => {
+  const { role } = req.user;   
+
+  let query = {};
+
+  if (role === 'Admin') { 
+    query = {};
+  } else if (role === 'Student' ) {  
+    query = { isAvailable: true };
+  }
+
+  const { error, data, pagination } = await paginate(Job, req, query);
+  console.log(query);
+
+  if (error) {
+    return res.status(404).json({ success: false, error });
+  }
+
+  res.status(200).json({ success: true, pagination, data });
 });
 
+ 
 exports.deleteJob = asyncHandler (async(req, res)=>{
 
     console.log(req.params.id);

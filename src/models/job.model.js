@@ -69,11 +69,11 @@ const jobSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  // isAvailable: {
-  // 	type: Boolean,
-  // 	trim: true,
-  // 	default:false
-  // },
+  isAvailable: {
+  	type: Boolean,
+  	trim: true,
+  	default:false
+  },
   applications: [{ type: mongoose.Types.ObjectId, ref: "Application" }],
 });
 
