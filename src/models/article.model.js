@@ -6,7 +6,7 @@ const { deleteUploadedFile } = require('../utils/deleteUploadedFile');
 const articleSchema = new Schema({
 	title: {
 		type: String,
-		required: [true, 'please provide the article category'],
+		required: [true, 'please provide the article title'],
 		trim: true,
 	},
 	category: {
@@ -30,7 +30,7 @@ const articleSchema = new Schema({
 		type: Boolean,
 		default: false,
 	},
-});
+});													``	
 
 articleSchema.pre('findOneAndUpdate', deleteUploadedFile);
 articleSchema.pre('findOneAndDelete', deleteUploadedFile);

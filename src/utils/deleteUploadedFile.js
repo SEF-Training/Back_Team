@@ -21,8 +21,8 @@ const deleteUploadedFile = async function () {
     }
 
     if (foundImageField) {
-      let path = `src/uploads/${doc[foundImageField]}`;
-      await deleteFile(path);
+      let path = `src/uploads/${doc[foundImageField]}`; 
+      await deleteFile(path); 
     }
   } catch (err) {
     console.error('Error deleting old image:', err);

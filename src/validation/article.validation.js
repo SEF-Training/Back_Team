@@ -14,7 +14,7 @@ const newArticleValidation = Joi.object({
 		.trim()
 		.messages({
 			'any.required': 'Please provide a status for this Article',
-			'any.only': `Must be one of the following values: ${enum_ArticlesCategory}`,
+			'any.only': ` category Must be one of the following values: ${enum_ArticlesCategory}`,
 		}),
 
 	content: Joi.string().required().messages({
@@ -29,8 +29,7 @@ const newArticleValidation = Joi.object({
 	// 	.required()
 	// 	.messages({ 'any.required': 'Please select the Instructor' }),
 
-	isPublished: Joi.boolean().required().messages({
-		'any.required': 'Please specify if you want to publish or draft',
+	isPublished: Joi.boolean().messages({
 	}),
 });
 

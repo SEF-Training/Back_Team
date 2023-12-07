@@ -41,6 +41,7 @@ const articleController = {
 	}),
 
 	createArticle: asyncHandler(async (req, res) => {
+		console.log(req.file);
 		if (req.file) {
 			req.body.cover = `/articles/${req.file.filename}`;
 		}
