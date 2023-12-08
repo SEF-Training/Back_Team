@@ -11,11 +11,11 @@ const handelStatus = (date, duration, enums = ['up coming', 'on going', 'ended']
 
 	let status = '';
 	if (new Date(date) > currentDate) {
-		status = enums[0];
+		status = enums[0] || 'up coming';
 	} else if (new Date(date) <= currentDate && new Date(date) < endDate) {
-		status = enums[1];
+		status = enums[1] || 'on going';
 	} else {
-		status = enums[2];
+		status = enums[2] || 'ended';
 	}
 	console.log('status', status);
 	return status;
@@ -105,19 +105,7 @@ exports.updateCourse = asyncHandler(async (req, res) => {
 		req.params.id,
 		{ ...req.body, status },
 		{ new: true }
-	)
-		// .populate('enrolledStudents.student');
-		// .populate('enrolledStudents.user', 'firstName lastName');
-		// .populate({
-		// 	path: 'enrolledStudents',
-		// 	select: 'student',
-		// 	model: 'user',
-		// 	populate: {
-		// 		path: '_id',
-		// 		model: 'user',
-		// 		select: 'firstName lastName',
-		// 	},
-		// });
+	).populate('enrolledStudents.student', 'firstName lastName');
 
 	if (!course) {
 		return res.status(404).send({ success: false, message: 'course not found!' });

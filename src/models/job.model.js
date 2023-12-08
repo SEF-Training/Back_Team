@@ -69,6 +69,8 @@ const jobSchema = new Schema({
 		type: Boolean,
 		trim: true,
 	},
+	currency: String,
+	skills: String,
 	applications: [{ type: mongoose.Types.ObjectId, ref: 'Application' }],
 });
 

@@ -98,7 +98,7 @@ const articleController = {
 			status = req.body?.isPublished;
 		}
 		const updatedArticle = await Article.findByIdAndUpdate(
-			{_id: id},
+			{ _id: id },
 			{ ...req.body, isPublished: status },
 			{ new: true }
 		);
