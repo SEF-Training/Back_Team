@@ -99,18 +99,9 @@ courseSchema.virtual('exam', {
 	foreignField: 'course',
 });
 
-// courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
+courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
 courseSchema.pre('findOneAndDelete', deleteUploadedFile);
 
-courseSchema.pre('findOneAndUpdate', async function (next) {
-	if (!this.isModified('image')) return next();
-	try {
-		deleteUploadedFile();
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
 
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;
