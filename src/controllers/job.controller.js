@@ -2,9 +2,15 @@ const Job = require('../models/job.model');
 const asyncHandler = require('express-async-handler');
 const { paginate } = require('../utils/pagination');
 exports.createJob = asyncHandler(async (req, res) => {
-	if (req.file) req.body.companyLogo = `/jobs/${req.file.filename}`;
+	const companyLogoPath = req.file ? `/jobs/${req.file.filename}` : null;
 
-	const newJob = await Job.create(req.body);
+	const newJobData = {
+		...req.body,
+		companyLogo: companyLogoPath,
+	};
+
+	const newJob = await Job.create(newJobData);
+
 	if (!newJob) {
 		return res.status(500).send({
 			success: false,
@@ -36,14 +42,23 @@ exports.getJob = asyncHandler(async (req, res) => {
 });
 
 exports.getAllJobs = asyncHandler(async (req, res) => {
-	let query ={}
-	if(req.user?.role =='Admin'){
-		query = {}
-	}else{
+	const { role } = req.user;
+
+	let query = {};
+
+	if (role === 'Admin') {
+		query = {};
+	} else if (role === 'Student') {
 		query = { isAvailable: true };
 	}
+
 	const { error, data, pagination } = await paginate(Job, req, query);
-	if (error) return res.status(404).json({ success: false, error });
+	console.log(query);
+
+	if (error) {
+		return res.status(404).json({ success: false, error });
+	}
+
 	res.status(200).json({ success: true, pagination, data });
 });
 
@@ -63,21 +78,36 @@ exports.deleteJob = asyncHandler(async (req, res) => {
 		data: job,
 	});
 });
-
 exports.updateJob = asyncHandler(async (req, res) => {
-	const job = await Job.findByIdAndUpdate(req.params.id, req.body, { new: true });
-	if (req.file) req.body.companyLogo = `/jobs/${req.file.filename}`;
+	if (req.file) {
+		req.body.companyLogo = `/jobs/${req.file.filename}`;
+	}
 
-	if (!job) {
-		return res.status(404).send({
+	try {
+		const updatedJob = await Job.findByIdAndUpdate(
+			req.params.id,
+			{ ...req.body },
+			{ new: true }
+		);
+
+		if (!updatedJob) {
+			return res.status(404).send({
+				success: false,
+				message: 'Job Not Found',
+				data: updatedJob,
+			});
+		}
+
+		return res.status(200).send({
+			success: true,
+			message: 'Job updated successfully',
+			data: updatedJob,
+		});
+	} catch (error) {
+		console.error('Error updating job:', error);
+		return res.status(500).send({
 			success: false,
-			message: 'Job Not Found',
-			data: job,
+			message: 'Internal Server Error',
 		});
 	}
-	return res.status(200).send({
-		success: true,
-		message: 'Job updated successfully',
-		data: job,
-	});
 });
