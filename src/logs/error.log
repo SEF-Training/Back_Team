@@ -539,3 +539,7 @@
     at F:\Training\server\src\middlewares\authenticateMiddleware.js:14:3
     at Layer.handle [as handle_request] (F:\Training\server\node_modules\express\lib\router\layer.js:95:5)
     at next (F:\Training\server\node_modules\express\lib\router\route.js:144:13)
+[2023-12-09 01:18:21.447 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1702120701444--08609068-84ec-46b1-a78a-919bc6ecead5.jpg'
+[2023-12-09 01:18:53.471 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1702120733469--9a26b328-9f7e-43e4-aa03-99d3536d3e3c.jpg'
+[2023-12-09 01:19:21.492 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1702120761491--6181cf34-9b20-44ca-833f-516ba6859dd7.jpg'
+[2023-12-09 01:19:23.252 PM] Error: ENOENT: no such file or directory, open 'D:\Rwan\back-end node\training\SEFF_Acadimy\server\src\uploads\jobs\1702120763251--0212d393-a3d5-4040-8cab-8dd438664c24.jpg'
