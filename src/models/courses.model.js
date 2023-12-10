@@ -80,6 +80,17 @@ const courseSchema = new Schema(
 	{ timestamps: true }
 );
 
+// courseSchema.index({ '$**': 'text' }, { default_language: 'english' });
+// courseSchema.index({ '$**': 'text', text: 'text' }, { default_language: 'english' });
+courseSchema.index({
+	name: 'text',
+	// content: 'text',
+	// requirements: 'text',
+	// introduction: 'text',
+});
+
+
+
 courseSchema.virtual('instructor', {
 	ref: 'User',
 	localField: 'Instructor',
@@ -99,18 +110,9 @@ courseSchema.virtual('exam', {
 	foreignField: 'course',
 });
 
-// courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
+courseSchema.pre('findOneAndUpdate', deleteUploadedFile);
 courseSchema.pre('findOneAndDelete', deleteUploadedFile);
 
-courseSchema.pre('findOneAndUpdate', async function (next) {
-	if (!this.isModified('image')) return next();
-	try {
-		deleteUploadedFile();
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
 
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;

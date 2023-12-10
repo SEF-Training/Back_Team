@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const {enum_jobStatus} = require('../config/enums');
-const { deleteUploadedFile } = require("../utils/deleteUploadedFile");
+const { enum_jobStatus } = require('../config/enums');
+const { deleteUploadedFile } = require('../utils/deleteUploadedFile');
 
 const jobSchema = new Schema({
 	companyName: {
@@ -69,18 +69,19 @@ const jobSchema = new Schema({
 		type: Boolean,
 		trim: true,
 	},
+	currency: String,
+	skills: String,
 	applications: [{ type: mongoose.Types.ObjectId, ref: 'Application' }],
 });
-
+jobSchema.index({ '$**': 'text' });
 jobSchema.virtual('application', {
 	ref: 'Application',
 	localField: 'applications',
 	foreignField: 'job',
 });
 
+jobSchema.pre('findOneAndDelete', deleteUploadedFile);
+jobSchema.pre('findOneAndUpdate', deleteUploadedFile);
 
-jobSchema.pre('findOneAndDelete' ,deleteUploadedFile )
-jobSchema.pre('findOneAndUpdate' ,deleteUploadedFile )
-
-const Job = mongoose.model('Job', jobSchema)
+const Job = mongoose.model('Job', jobSchema);
 module.exports = Job;

@@ -5,6 +5,7 @@ const { infoLogger } = require('../services/infoLoggerService');
 const { paginate } = require('../utils/pagination3');
 const { calculateEndDate } = require('../utils/calculateEndDate');
 const { enum_examsStatus } = require('../config/enums');
+const { handelStatus } = require('../utils/handelStatus.ByDate');
 
 const examController = {
 	getAllExams: asyncHandler(async (req, res) => {
@@ -76,25 +77,7 @@ const examController = {
 	}),
 
 	createExam: asyncHandler(async (req, res) => {
-		// check and set exam status
-		const currentDate = Date.now();
-		const endDate = calculateEndDate(req.body?.duration);
-		console.log('endDate', endDate);
-			const status = handelStatus(req.body?.date, req.body?.duration, enum_examsStatus);
-
-		// if (new Date(req.body?.date) > currentDate) {
-		// 	status = 'up coming';
-		// } else if (
-		// 	new Date(req.body?.date) <= currentDate &&
-		// 	new Date(req.body?.date) < endDate
-		// ) {
-		// 	status = 'on going';
-		// } else {
-		// 	status = 'ended';
-		// }
-		// console.log('status', status);
-
-		
+		const status = handelStatus(req.body?.date, req.body?.duration, enum_examsStatus);
 
 		const newExam = await Exam.create({ ...req.body, status });
 		if (!newExam) {

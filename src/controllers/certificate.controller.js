@@ -22,7 +22,6 @@ exports.createCertificate = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.certificate_file = `/certificates/${req.file.filename}`;
 	}
-	console.log('req.body', req.body);
 	const newCertificate = await Certificate.create(req.body);
 	if (!newCertificate) {
 		return res.status(400).send({

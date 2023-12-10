@@ -1,7 +1,7 @@
 const Article = require('../models/article.model');
 const asyncHandler = require('express-async-handler');
 const { infoLogger } = require('../services/infoLoggerService');
-const { paginate } = require('../utils/pagination');
+const { paginate } = require('../utils/pagination3');
 
 const articleController = {
 	getAllArticles: asyncHandler(async (req, res) => {
@@ -98,7 +98,7 @@ const articleController = {
 			status = req.body?.isPublished;
 		}
 		const updatedArticle = await Article.findByIdAndUpdate(
-			{_id: id},
+			{ _id: id },
 			{ ...req.body, isPublished: status },
 			{ new: true }
 		);

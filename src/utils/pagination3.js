@@ -8,11 +8,6 @@ async function paginate(model, req, quire = {}, populateOptions = null) {
 		? { [searchBy]: { $regex: new RegExp(searchValue, 'i') } }
 		: {};
 
-	console.log('req.query p', req.query);
-	console.log('quire p', quire);
-	console.log('filter p', filter);
-	console.log('searchQuery p', searchQuery);
-	
 	const transformedQuery = { ...quire, ...filter, ...searchQuery };
 	delete transformedQuery.page;
 	delete transformedQuery.limit;
