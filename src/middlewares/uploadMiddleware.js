@@ -36,7 +36,6 @@ const storageEngine = multer.diskStorage({
   },
 });
 const checkFileType = function (file, cb, type = "image") {
-  console.log("type", type);
   let fileTypes = /jpeg|jpg|png|gif|svg/;
   if (type == "file") {
     fileTypes = /jpeg|jpg|png|gif|svg|pdf|doc|dox/;

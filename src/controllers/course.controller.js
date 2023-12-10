@@ -4,30 +4,14 @@ const { paginate } = require('../utils/pagination3');
 const { calculateEndDate } = require('../utils/calculateEndDate');
 const { infoLogger } = require('../services/infoLoggerService');
 const { enum_coursesStatus } = require('../config/enums');
+const { handelStatus } = require('../utils/handelStatus.ByDate');
 
-const handelStatus = (date, duration, enums = ['up coming', 'on going', 'ended']) => {
-	const currentDate = Date.now();
-	const endDate = calculateEndDate(duration);
-
-	let status = '';
-	if (new Date(date) > currentDate) {
-		status = enums[0] || 'up coming';
-	} else if (new Date(date) <= currentDate && new Date(date) < endDate) {
-		status = enums[1] || 'on going';
-	} else {
-		status = enums[2] || 'ended';
-	}
-	console.log('status', status);
-	return status;
-};
 
 //************ */ courses/ router ---------------------------------
 // @desc    Get all courses
 // @route   GET /api/courses/admin
 // @access  Private-admin
 exports.getAllCourses = asyncHandler(async (req, res) => {
-	console.log('req.params', req.params);
-	console.log('req.query', req.query);
 	const populateOptions = { path: 'Instructor', select: 'firstName lastName' };
 	const { error, data, pagination } = await paginate(
 		Course,
@@ -47,7 +31,6 @@ exports.createCourse = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.image = `/courses/${req.file.filename}`;
 	}
-	console.log('req.body', req.body);
 	const status = handelStatus(
 		req.body?.start_date,
 		req.body?.duration,
@@ -89,9 +72,6 @@ exports.getSingleCourse = asyncHandler(async (req, res) => {
 // @route   Patch /api/courses/admin/:id
 // @access  Private-admin
 exports.updateCourse = asyncHandler(async (req, res) => {
-	console.log('req.body', req.body);
-	console.log('req.params.id', req.params.id);
-	console.log('req.file', req.file);
 	if (req.file) {
 		req.body.image = `/courses/${req.file.filename}`;
 	}
@@ -142,8 +122,6 @@ exports.deleteCourse = asyncHandler(async (req, res) => {
 // @route   POST /api/courses/instructor
 // @access  Private-instructor
 exports.instructorGetCourses = asyncHandler(async (req, res) => {
-	console.log('req.query', req.query);
-	console.log('req.params', req.params);
 	const populateOptions = { path: 'Instructor', select: 'firstName lastName' };
 	const { error, data, pagination } = await paginate(
 		Course,
@@ -160,7 +138,6 @@ exports.instructorGetCourses = asyncHandler(async (req, res) => {
 // @route   POST /api/courses/instructor/:_id
 // @access  Private-instructor
 exports.instructorGetCourse = asyncHandler(async (req, res) => {
-	console.log('req.query', req.query);
 	const course = await Course.findOne({
 		_id: req.params.id,
 		Instructor: req.user?._id,

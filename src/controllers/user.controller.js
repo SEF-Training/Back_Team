@@ -47,7 +47,7 @@ module.exports = {
     updateUserProfileCtrl: asyncHandler(async (req, res) => {
         console.log("req.file",req.file)
         if (req.file) req.body.profileImage = `users/${req.file.filename}`
-      if (req.body.mobileNumber) {
+        if (req.body.mobileNumber) {
             const existingUser = await User.findOne({ _id: { $ne: req.user._id }, $or: [{ mobileNumber: req.body.mobileNumber }] });
             if (existingUser) return res.status(400).json({ success: false, error: `This MobileNumber already in use ..!` })
         }

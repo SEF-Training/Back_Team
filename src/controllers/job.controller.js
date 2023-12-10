@@ -53,7 +53,6 @@ exports.getAllJobs = asyncHandler(async (req, res) => {
 	}
 
 	const { error, data, pagination } = await paginate(Job, req, query);
-	console.log(query);
 	const locations = await Job.distinct('location');
 
 	if (error) {
@@ -64,7 +63,6 @@ exports.getAllJobs = asyncHandler(async (req, res) => {
 });
 
 exports.deleteJob = asyncHandler(async (req, res) => {
-	console.log(req.params.id);
 	const job = await Job.findByIdAndDelete(req.params.id);
 	if (!job) {
 		return res.status(404).send({

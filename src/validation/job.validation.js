@@ -82,7 +82,7 @@ const createJobValidation = Joi.object({
 	// 	'any.min': 'Job name must be between 3 and 50 characters',
 	// 	'any.mix': 'Job name must be between 3 and 50 characters',
 	// }),
-  date: Joi.date().default(new Date()).required(),
+  date: Joi.date().default(new Date()) ,
 	isAvailable: Joi.boolean().default(true).required({
 		'any.required': 'Please enter a state',
 	}),

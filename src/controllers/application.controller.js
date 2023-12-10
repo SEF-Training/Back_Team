@@ -14,14 +14,15 @@ exports.createApplication = asyncHandler(async (req, res) => {
 	if (req.file) {
 		req.body.cv = `/applications/${req.file.filename}`;
 	}
-	const jobExist = await User.find({ _id: req.user?._id, applicantFor: req.body?.job });
+	// const jobExist = await User.find({ _id: req.user?._id, applicantFor: req.body?.job });
+	const jobExist = await User.findOne({ _id: req.user?._id, applicantFor: req.body?.job });
+
 	if (jobExist) {
 		return res
 			.status(400)
-			.json({ success: false, message: 'You have already applied for this job' });
+			.json({ success: false,jobExist, message: 'You have already applied for this job' });
 	}
 
-	console.log('req.body', req.body);
 	const newApplication = await Application.create(req.body);
 	if (!newApplication) {
 		return res.status(400).send({

@@ -3,17 +3,15 @@ exports.calculateEndDate = (startDate, duration) => {
 
 	const endDate = new Date(startDate);
 
-	console.log('endDate1:', endDate);
-	if (duration.includes('month')) {
+	if (duration?.toLowerCase()?.includes('month')) {
 		endDate.setMonth(endDate.getMonth() + parseInt(duration));
-	} else if (duration.includes('week')) {
+	} else if (duration?.toLowerCase()?.includes('week')) {
 		endDate.setHours(endDate.getHours() + parseInt(duration) * 7 * 24);
-	} else if (duration.includes('day')) {
+	} else if (duration?.toLowerCase()?.includes('day')) {
 		endDate.setHours(endDate.getHours() + parseInt(duration) * 24);
-	} else if (duration.includes('hour')) {
+	} else if (duration?.toLowerCase()?.includes('hour')) {
 		endDate.setHours(endDate.getHours() + parseInt(duration));
 	}
-	console.log('endDate2:', endDate);
 
 	return endDate;
 };
