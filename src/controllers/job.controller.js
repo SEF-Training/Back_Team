@@ -1,6 +1,6 @@
 const Job = require('../models/job.model');
 const asyncHandler = require('express-async-handler');
-const { paginate } = require('../utils/pagination');
+const { paginate } = require('../utils/pagination3');
 exports.createJob = asyncHandler(async (req, res) => {
 	const companyLogoPath = req.file ? `/jobs/${req.file.filename}` : null;
 
@@ -54,12 +54,13 @@ exports.getAllJobs = asyncHandler(async (req, res) => {
 
 	const { error, data, pagination } = await paginate(Job, req, query);
 	console.log(query);
+	const locations = await Job.distinct('location');
 
 	if (error) {
 		return res.status(404).json({ success: false, error });
 	}
 
-	res.status(200).json({ success: true, pagination, data });
+	res.status(200).json({ success: true, pagination, data, locations });
 });
 
 exports.deleteJob = asyncHandler(async (req, res) => {

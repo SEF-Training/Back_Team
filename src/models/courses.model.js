@@ -80,6 +80,17 @@ const courseSchema = new Schema(
 	{ timestamps: true }
 );
 
+// courseSchema.index({ '$**': 'text' }, { default_language: 'english' });
+// courseSchema.index({ '$**': 'text', text: 'text' }, { default_language: 'english' });
+courseSchema.index({
+	name: 'text',
+	// content: 'text',
+	// requirements: 'text',
+	// introduction: 'text',
+});
+
+
+
 courseSchema.virtual('instructor', {
 	ref: 'User',
 	localField: 'Instructor',
